@@ -23,11 +23,6 @@
 	<link rel="stylesheet" type="text/css" href="resource/font/notosans.css">
 	<link rel="stylesheet" type="text/css" href="resource/css/default.css">
 	<link rel="stylesheet" type="text/css" href="resource/css/style.css">
-	<script type="text/javascript" src="resource/js/jquery-1.12.2.min.js"></script>
-	<script type="text/javascript" src="resource/js/ui.js"></script>
-	<!--[if lt IE 9]>
-		<script src="resource/js/html5shiv.min.js"></script>
-	<![endif]-->
 </head>
 <body>
 
@@ -265,8 +260,9 @@
 						<li class="grid14"><button type="button" onclick="layerShow(this)" data-img="img_grid14_big.jpg"><img src="resource/images/img_grid14.jpg" alt=""></button></li>
 						<li class="grid15"><button type="button" onclick="layerShow(this)" data-img="img_grid15_big.jpg"><img src="resource/images/img_grid15.jpg" alt=""></button></li>
 						<li class="grid16">
-							<div class="youtube" onmouseenter="youtubePlay(this, 'hxZbwBvJnao');">
+							<div class="youtube" onmouseenter="youtubePlay(this);">
 								<img src="resource/images/img_grid_youtube.jpg" alt="">
+								<div id="player"></div>
 							</div>
 						</li>
 						<li class="grid17">
@@ -278,36 +274,52 @@
 							</div>
 						</li>
 					</ul>
-					
-					<script type="text/javascript">
-						function youtube(key) {
-							var iframe = '<iframe src="https://www.youtube.com/embed/'+key+'?autoplay=1&mute=0&controls=0&origin=https%3A%2F%2Fsukanjung.wixsite.com&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=1" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
-							return iframe;
-						}
-						function youtubePlay(_this, key) {
-							var $this = $(_this);
-							if(!$this.hasClass('play')) {
-								$this.addClass('play').append(youtube(key));
-							}
-						};
-						function onYouTubeIframeAPIReady(id) {
-							player = new YT.Player('player', {
-								height: '100%',
-								width: '100%',
-								videoId: id
-							});
-						}
-						function videoPlay(_this) {
-							var $this = $(_this);
-							if(!$this.hasClass('play')) {
-								$this.addClass('play').find('video')[0].play();
-							}
-						}
-					</script>
 
 				</div>
 			</section>
+			<script type="text/javascript">
+				var tag = document.createElement('script');
 
+				tag.src = "https://www.youtube.com/iframe_api";
+				
+				var firstScriptTag = document.getElementsByTagName('script')[0];
+				firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+				var player;
+				function onYouTubeIframeAPIReady() {
+					player = new YT.Player('player', {
+						height: '100%',
+						width: '100%',
+						// videoId: 'OkdhFVefHxo',
+						videoId: 'hxZbwBvJnao',
+						playerVars: {
+							loop : 1,
+							autoplay: 1,
+							mute: 0,
+							controls: 0,
+							playsinline: 1,
+							showinfo : 0,
+							rel : 0,
+							iv_load_policy : 3,
+							modestbranding : 1
+						}
+					});
+				}
+				
+				function youtubePlay(_this, key) {
+					var $this = $(_this);
+					if(!$this.hasClass('play')) {
+						$this.addClass('play');
+						player.playVideo();
+					}
+				}
+				function videoPlay(_this) {
+					var $this = $(_this);
+					if(!$this.hasClass('play')) {
+						$this.addClass('play').find('video')[0].play();
+					}
+				}
+			</script>
+			
 			<section class="cultureSection">
 				<div class="contentsWrap">
 					<div class="head scrollClsObj">
@@ -351,5 +363,28 @@
 			<small>&copy; 2019 ALL RIGHTS RESERVED BY SPARKS GLENCOE</small>
 		</p>
 	</footer>
+	
+	<script>
+		var objInfoArry = [
+			{name : 'obj1', y : 300},
+			{name : 'obj2', y : -500},
+			{name : 'obj3', y : 300},
+			{name : 'obj4', y : -500},
+			{name : 'obj5', y : 300},
+			{name : 'obj6', y : 300},
+			{name : 'obj7', y : 300},
+			{name : 'obj8', y : -500},
+			{name : 'obj9', x : 1000},
+			{name : 'obj10', x : -1000},
+			{name : 'obj11', x : -1000},
+			{name : 'obj12', y : -500},
+			{name : 'imgSetWrap', cls : 'fixed'},
+		];
+	</script>
+	<script type="text/javascript" src="resource/js/jquery-1.12.2.min.js"></script>
+	<script type="text/javascript" src="resource/js/ui.js"></script>
+	<!--[if lt IE 9]>
+		<script src="resource/js/html5shiv.min.js"></script>
+	<![endif]-->
 </body>
 </html>

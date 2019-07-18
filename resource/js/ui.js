@@ -1,7 +1,7 @@
 var objDefault = {
 	'win' : $(window),
-	'doc' : $('html, body'),
-	'bo' : $('body')
+	'doc' : $('html'),
+	'body' : $('body')
 }
 
 function listOpen(_this) {
@@ -18,30 +18,18 @@ function layerShow(_this) {
 	layerTemplate += '<div class="layerContents">';
 	layerTemplate += '<img src='+src+img+'>';
 	layerTemplate += '</div>';
-	layerTemplate += '<button type="button" class="layerClose" onclick="layerClose();"><span>레이어닫기</span></button>';
+	// layerTemplate += '<button type="button" class="prevImg" onclick="prevImg();"><span>prev</span></button>';
+	// layerTemplate += '<button type="button" class="nextImg" onclick="nextImg();"><span>next</span></button>';
+	layerTemplate += '<button type="button" class="layerClose" onclick="layerClose();"><span>close</span></button>';
 	layerTemplate += '</div>';
-	$('body').append(layerTemplate);
+	objDefault.body.append(layerTemplate);
 }
 
 function layerClose() {
 	var layer = $('.layerPop');
 	layer.remove();
 }
-var objInfoArry = [
-	{name : 'obj1', y : 300},
-	{name : 'obj2', y : -500},
-	{name : 'obj3', y : 300},
-	{name : 'obj4', y : -500},
-	{name : 'obj5', y : 300},
-	{name : 'obj6', y : 300},
-	{name : 'obj7', y : 300},
-	{name : 'obj8', y : -500},
-	{name : 'obj9', x : 1000},
-	{name : 'obj10', x : -1000},
-	{name : 'obj11', x : -1000},
-	{name : 'obj12', y : -500},
-	{name : 'imgSetWrap', cls : 'fixed'},
-];
+
 var movObj = {};
 var fixedWrap = {};
 var startObjPos = {};
@@ -91,17 +79,20 @@ function scrollClsObj(start) {
 		});
 	}
 }
+function scrollPos() {
+	var scrollTop = objDefault.doc.scrollTop();
+	var startPos = scrollTop + objDefault.win.height();
+	scrollClsObj(startPos);
+	objInfoArry.forEach(function(idx){
+		scrollObj(idx, scrollTop, startPos);
+	});
+}
 objDefault.win.on({
 	'load' : function() {
 		init();
+		scrollPos();
 	},
 	'scroll': function() {
-		var scrollTop = objDefault.doc.scrollTop();
-		var startPos = scrollTop + objDefault.win.height();
-		scrollClsObj(startPos);
-		objInfoArry.forEach(function(idx){
-			scrollObj(idx, scrollTop, startPos);
-		});
-		
+		scrollPos();
 	}
 });

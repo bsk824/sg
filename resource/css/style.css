@@ -272,6 +272,7 @@
 
 .imgSetWrap {
 	position: relative;
+	margin-top: -600px;
 	height: 3000px;
 	overflow: hidden;
 }
