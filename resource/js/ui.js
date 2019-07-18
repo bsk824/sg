@@ -1,6 +1,31 @@
 var objDefault = {
 	'win' : $(window),
-	'doc' : $('html, body')
+	'doc' : $('html, body'),
+	'bo' : $('body')
+}
+
+function listOpen(_this) {
+	var $this = $(_this);
+	$this.toggleClass('open').next().slideToggle(300);
+}
+
+function layerShow(_this) {
+	var $this = $(_this);
+	var img = $this.data('img');
+	var src = 'resource/images/'
+	var layerTemplate = '';
+	layerTemplate += '<div class="layerPop">';
+	layerTemplate += '<div class="layerContents">';
+	layerTemplate += '<img src='+src+img+'>';
+	layerTemplate += '</div>';
+	layerTemplate += '<button type="button" class="layerClose" onclick="layerClose();"><span>레이어닫기</span></button>';
+	layerTemplate += '</div>';
+	$('body').append(layerTemplate);
+}
+
+function layerClose() {
+	var layer = $('.layerPop');
+	layer.remove();
 }
 var objInfoArry = [
 	{name : 'obj1', y : 300},
@@ -11,9 +36,9 @@ var objInfoArry = [
 	{name : 'obj6', y : 300},
 	{name : 'obj7', y : 300},
 	{name : 'obj8', y : -500},
-	{name : 'obj9', x : 500},
-	{name : 'obj10', x : -500},
-	{name : 'obj11', x : -500},
+	{name : 'obj9', x : 1000},
+	{name : 'obj10', x : -1000},
+	{name : 'obj11', x : -1000},
 	{name : 'obj12', y : -500},
 	{name : 'imgSetWrap', cls : 'fixed'},
 ];
@@ -50,8 +75,8 @@ function scrollObj(idx, scroll, start) {
 			style['top'] = 0;
 			style['left'] = 0;
 		}
+		movObj[idx.name].css(style);
 	}
-	movObj[idx.name].css(style);
 }
 function scrollClsObj(start) {
 	var obj = $('.scrollClsObj');

@@ -3,6 +3,7 @@
 #header {
 	position: absolute;
 	top: 0; right: 0; left: 100px;
+	z-index: 100;
 	min-width: 1720px;
 	color: #fff;
 }
@@ -34,7 +35,8 @@
 	padding-bottom: 10px;
 	background: url('../images/icon_lang_arrow.png') no-repeat 50% 100%;
 }
-#gnb .lang a {
+#gnb .lang .list {
+	position: absolute;
 	display: none;
 }
 #gnb .siteMap {
@@ -47,6 +49,10 @@
 #gnb .menu button {
 	width: 168px; height: 168px;
 	background: #000;
+}
+#gnb .menu .list {
+	position: absolute;
+	display: none;
 }
 
 #footer {
@@ -210,6 +216,10 @@
 	width: 1480px;
 	padding-left: 240px;
 }
+.ourSection .head {
+	margin-top: 100px;
+	overflow: hidden;
+}
 .ourSection .tit {
 	position: absolute;
 	top: 0; left: 140px;
@@ -221,7 +231,7 @@
 .ourSection .txt {
 	position: relative;
 	left: 100px;
-	margin: 100px 0 0 710px;
+	margin: 0 0 0 710px;
 }
 .ourSection .active .txt {
 	left: 0;
@@ -233,10 +243,23 @@
 	clear: both;
 }
 .ourSection .iconList li {
+	position: relative;
+	top: 100px;
+	opacity: 0;
+	transition: all .5s;
+
 	float: left;
 	width: 250px;
 	text-align: center;
 	font-size: 26px;
+}
+.ourSection .iconList li.item2 {transition-delay: .2s;}
+.ourSection .iconList li.item3 {transition-delay: .3s;}
+.ourSection .iconList li.item4 {transition-delay: .4s;}
+.ourSection .iconList li.item5 {transition-delay: .5s;}
+.ourSection .iconList.active li {
+	top: 0;
+	opacity: 1;
 }
 .ourSection .iconList li:before {
 	content: "";
@@ -249,7 +272,7 @@
 
 .imgSetWrap {
 	position: relative;
-	height: 4200px;
+	height: 3000px;
 	overflow: hidden;
 }
 .imgSetWrap:after {
@@ -275,27 +298,46 @@
 	top: auto; right: 0; bottom: 200px; left: 0;
 }
 .imgSetWrap .imgSet [class*="imgPos"] {position: absolute;}
-.imgSetWrap .imgSet .imgPos1 {top: 0; left: -500px;}
-.imgSetWrap .imgSet .imgPos2 {top: 0; left: 1570px;}
-.imgSetWrap .imgSet .imgPos3 {top: 0; left: 1580px;}
+.imgSetWrap .imgSet .imgPos1 {top: 0; left: -1000px;}
+.imgSetWrap .imgSet .imgPos2 {top: 0; left: 2270px;}
+.imgSetWrap .imgSet .imgPos3 {top: 0; left: 1880px;}
 
 .gridSection {
 	position: relative;
 	width: 1280px;
 	margin: 90px auto;
 }
-.gridSection .head {margin: 0 0 70px;}
+.gridSection .head {
+	overflow: hidden;
+	margin: 0 0 70px;
+}
 .gridSection .head .tit {
 	position: absolute;
-	top: 0; left: 145px;
+	top: 0; left: 45px;
+	opacity: 0;
+	transition: all .5s;
+
 	font-size: 60px;
 	line-height: 1;
 }
+.gridSection .active .tit {
+	left: 145px;
+	opacity: 1;
+}
 .gridSection .head .txt {
+	position: relative;
+	left: 100px;
+	opacity: 0;
+	transition: all .5s;
+	
 	margin-left: 620px;
 	font-size: 20px;
 	font-weight: 100;
 } 
+.gridSection .active .txt {
+	left: 0;
+	opacity: 1;
+}
 .gridSection .list {
 	position: relative;
 	height: 1815px;
@@ -325,12 +367,20 @@
 .gridSection .grid15 {width:230px;height:128px;bottom:0;left:237px;}
 .gridSection .grid16 {width:638px;height:359px;top:0;right:0;}
 .gridSection .grid17 {width:803px;height:449px;bottom:0;right:0;}
-.gridSection .video {width:883px;}
+
+.gridSection .video video {width:883px;}
 .gridSection .youtube,
 .gridSection .youtube iframe {width:100%;height:100%;}
+.gridSection .video img,
 .gridSection .youtube img {
 	position: absolute;
 	top: 0; left: 0;
+	width: 100%; height: 100%;
+	opacity: 1;
+	transition: all 1s;
+}
+.gridSection .play img {
+	opacity: 0;
 }
 
 .cultureSection {
@@ -342,6 +392,7 @@
 	position: relative;
 	z-index: 2;
 }
+.cultureSection .head {overflow: hidden;}
 .cultureSection .tit {
 	position: absolute;
 	top: 100px; left: 250px;
@@ -418,10 +469,14 @@
 	top: 100px;
 	opacity: 0;
 	transition: all .5s;
+
 	float: left;
 	width: 25%;
 	text-align: center;
 }
+.cultureSection .iconList li.item2 {transition-delay: .2s;}
+.cultureSection .iconList li.item3 {transition-delay: .3s;}
+.cultureSection .iconList li.item4 {transition-delay: .4s;}
 .cultureSection .iconList.active li {
 	top: 0;
 	opacity: 1;
@@ -430,3 +485,42 @@
 	display: block;
 	height: 120px;
 }
+
+.layerPop {
+	position: fixed;
+	top: 0; right: 0; bottom: 0; left: 0;
+	z-index: 1000;
+	background: #000;
+	text-align: center;
+}
+.layerPop:after {
+	content: "";
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+
+}
+.layerPop .layerContents {
+	display: inline-block;
+	vertical-align: middle;
+}
+.layerPop .layerClose {
+	position: fixed;
+	top: 35px; right: 30px;
+	width: 36px; height: 36px;
+	font-size: 0;
+}
+.layerPop .layerClose span {
+	display: block;
+	width: 100%; height: 100%;
+	transform: rotate(45deg);
+}
+.layerPop .layerClose span:before,
+.layerPop .layerClose span:after {
+	content: "";
+	position: absolute;
+	top: 50%; left: 0;
+	width: 100%; height: 2px;
+	background: #fff;
+}
+.layerPop .layerClose span:before {transform: rotate(90deg);}
