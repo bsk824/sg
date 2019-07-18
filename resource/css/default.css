@@ -1,0 +1,50 @@
+@charset "utf-8";
+
+* {margin:0;padding:0;}
+html {height: 100%;}
+body {
+	height: 100%;
+	color: #000;
+	font: 14px/1.5 'Noto Sans KR';
+	letter-spacing: 1px;
+	-webkit-text-size-adjust: none;
+	word-break: keep-all;
+}
+a {
+	color: inherit;
+	text-decoration: none;
+}
+li {list-style: none;}
+table {
+	width: 100%;
+	border-collapse: collapse;
+	border: 0;
+	table-layout: fixed;
+}
+colgroup {background: none;}
+input, select, textarea, button {
+	font: 14px/1.5 'Noto Sans KR';
+	font-size: inherit;
+}
+fieldset, img {border: 0;}
+img {vertical-align: top;}
+label, td img {vertical-align: middle;}
+h1,h2,h3,h4,h5,strong,b,th {font-weight: 700;}
+legend, caption, .hidden {
+	position: absolute;
+	z-index: -1;
+	font-size: 0;
+}
+address, em {font-style:normal;}
+button {
+	overflow: visible;
+	cursor: pointer;
+	background: none;
+	border: 0;
+	border-radius: 0;
+	color: inherit;
+	font-weight: inherit;
+}
+button::-moz-focus-inner {padding:0;border:0;}
+pre {white-space:pre-wrap;font-family:'Noto Sans KR';}
+article, aside, canvas, details, figcaption, figure, footer, header, hgroup, nav, menu, nav, section {display:block;}

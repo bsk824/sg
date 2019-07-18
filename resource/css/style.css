@@ -1,0 +1,432 @@
+@charset "utf-8";
+
+#header {
+	position: absolute;
+	top: 0; right: 0; left: 100px;
+	min-width: 1720px;
+	color: #fff;
+}
+#header .logo {
+	float: left;
+	margin: 50px 0 0;
+}
+
+#gnb {
+	font-size: 24px;
+	font-weight: 100;
+}
+#gnb .category {
+	float: left;
+	margin: 55px 0 0 80px;
+}
+#gnb .category li {
+	float: left;
+	margin-right: 35px;
+}
+#gnb .util {float: right;}
+#gnb .lang {
+	float: left;
+	margin: 65px 35px 0 0;
+	font-size: 18px;
+	font-weight: 800;
+}
+#gnb .lang button {
+	padding-bottom: 10px;
+	background: url('../images/icon_lang_arrow.png') no-repeat 50% 100%;
+}
+#gnb .lang a {
+	display: none;
+}
+#gnb .siteMap {
+	float: left;
+	margin: 60px 35px 0 0;
+}
+#gnb .menu {
+	float: right;
+}
+#gnb .menu button {
+	width: 168px; height: 168px;
+	background: #000;
+}
+
+#footer {
+	padding: 35px 0 120px;
+	background: #000;
+	color: #fff;
+	font-weight: 100;
+	text-align: center;
+}
+#footer .link a {margin-right:80px;}
+#footer .contact {
+	margin-left: 280px;
+	font-size: 12px;
+}
+#footer .copy {margin: 80px 0 0;}
+
+.contentsWrap {
+	width: 1480px;
+	padding-left: 240px;
+	margin: 0 auto;
+}
+
+.movObj {position: relative;}
+.mainVideo {
+	position: fixed;
+	top: 0; right: 0; bottom: 0; left: 0;
+	min-width: 1720px;
+	z-index: -1;
+}
+.mainVideo:after {
+	content: "";
+	position: fixed;
+	top: 0; right: 0; bottom: 0; left: 0;
+	background: rgba(0,0,0,.6) url(../images/bg_mov_over.png);
+}
+.mainVideo video {width: 100%;}
+
+.txtMain {
+	position: relative;
+	right: 100px;
+	opacity: 0;
+	transition: all .5s;
+}
+.txtMain {
+	right: 0;
+	opacity: 1;
+	padding: 370px 0 0;
+}
+
+.mainBrand {
+	margin: 255px 0 0;
+	background: #fff;
+}
+.mainBrand .header {
+	padding: 80px 0 85px;
+	background: #000;
+}
+.mainBrand .header .tit {
+	margin: 0 0 5px;
+	color: #fff;
+	font-size: 68px;
+}
+.mainBrand .header .txt {
+	color: #fff;
+	font-size: 26px;
+	font-weight: 100;
+	line-height: 2;
+}
+.brandSection {
+	position: relative;
+	height: 840px;
+}
+.brandSection .contentsWrap {
+	position: relative;
+	z-index: 2;
+	width: 780px;
+	padding-left: 940px;
+}
+.brandSection .tit {
+	position: relative;
+	left: -100px;
+	opacity: 0;
+	transition: all .5s;
+
+	font-size: 48px;
+}
+.brandSection .active .tit {
+	left: 0;
+	opacity: 1;
+}
+.brandSection .tit img {
+	margin: 120px 0 40px;
+}
+.brandSection .tit .sub {
+	display: block;
+	font-size: 24px;
+	font-weight: 100;
+}
+.brandSection .txt {
+	position: relative;
+	left: -100px;
+	opacity: 0;
+	transition: all .5s;
+
+	margin: 30px 0 0;
+	font-size: 26px;
+	font-weight: 100;
+}
+.brandSection .active .txt {
+	left: 0;
+	opacity: 1;
+}
+.brandSection .more {
+	display: inline-block;
+	margin: 50px 0 0;
+	font-size: 24px;
+	font-weight: 800;
+	text-decoration: underline;
+}
+.brandSection .img {
+	position: absolute;
+	margin-right: 100px;
+	opacity: 0;
+	transition: all .5s;
+}
+.brandSection .active .img {
+	margin: 0;
+	opacity: 1;
+}
+.brandSection .imgPos1 {top: -200px; right: 0;}
+.brandSection .imgPos2 {top: -120px; left: 115px;}
+.brandSection .imgPos3 {top: -150px; right: -50px;}
+.brandSection .imgPos4 {top: 0; left: 240px;}
+.brandSection .imgPos5 {top: -92px; right: -50px;}
+
+.bgSection .img {
+	margin: 0 0 0 100px;
+}
+.bgSection {color: #fff;}
+.bgSection .contentsWrap {
+	width: 1480px;
+	padding-left: 240px;
+}
+.bgSection .bg {
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+	z-index: 1;
+	clip: rect(0,9999999px,840px,0);
+}
+.bgSection .bg .inner {
+	position: fixed;
+	top: 0; right: 0; bottom: 0; left: 0;
+}
+.bgSection .bg img {
+	min-width: 100%;
+	height: 100%;
+	margin-top: 250px;
+}
+
+.ourSection .contentsWrap {
+	width: 1480px;
+	padding-left: 240px;
+}
+.ourSection .tit {
+	position: absolute;
+	top: 0; left: 140px;
+	font-size: 68px;
+}
+.ourSection .active .tit {
+	left: 240px;
+}
+.ourSection .txt {
+	position: relative;
+	left: 100px;
+	margin: 100px 0 0 710px;
+}
+.ourSection .active .txt {
+	left: 0;
+}
+.ourSection .iconList {margin: 120px 0 0;}
+.ourSection .iconList:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.ourSection .iconList li {
+	float: left;
+	width: 250px;
+	text-align: center;
+	font-size: 26px;
+}
+.ourSection .iconList li:before {
+	content: "";
+	display: block;
+}
+.ourSection .iconList .icon {
+	display: block;
+	height: 160px;
+}
+
+.imgSetWrap {
+	position: relative;
+	height: 4200px;
+	overflow: hidden;
+}
+.imgSetWrap:after {
+	content: "";
+	position: absolute;
+	right: 0; bottom: 0; left: 0;
+	height: 200px;
+	background: #000;
+}
+.imgSetWrap .imgSet {
+	position: relative;
+	max-width: 1920px;
+	height: 1125px;
+	margin: 0 auto;
+	z-index: 2;
+}
+.imgSetWrap .fixed {
+	position: fixed;
+	top: 0; right: 0; bottom: 200px; left: 0;
+}
+.imgSetWrap .end {
+	position: absolute;
+	top: auto; right: 0; bottom: 200px; left: 0;
+}
+.imgSetWrap .imgSet [class*="imgPos"] {position: absolute;}
+.imgSetWrap .imgSet .imgPos1 {top: 0; left: -500px;}
+.imgSetWrap .imgSet .imgPos2 {top: 0; left: 1570px;}
+.imgSetWrap .imgSet .imgPos3 {top: 0; left: 1580px;}
+
+.gridSection {
+	position: relative;
+	width: 1280px;
+	margin: 90px auto;
+}
+.gridSection .head {margin: 0 0 70px;}
+.gridSection .head .tit {
+	position: absolute;
+	top: 0; left: 145px;
+	font-size: 60px;
+	line-height: 1;
+}
+.gridSection .head .txt {
+	margin-left: 620px;
+	font-size: 20px;
+	font-weight: 100;
+} 
+.gridSection .list {
+	position: relative;
+	height: 1815px;
+}
+.gridSection .list li {position:absolute;overflow:hidden;}
+.gridSection button {position: relative;}
+.gridSection button:hover:after {
+	content: "";
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+	background: rgba(255,255,255, .6);
+}
+.gridSection .grid01 {width:317px;height:305px;top:0;left:0;}
+.gridSection .grid02 {width:305px;height:305px;top:0;left:328px;}
+.gridSection .grid03 {width:632px;height:355px;top:315px;left:0;}
+.gridSection .grid04 {width:428px;height:301px;top:369px;left:642px;}
+.gridSection .grid05 {width:200px;height:301px;top:369px;right:0;}
+.gridSection .grid06 {width:493px;height:329px;top:680px;left:0;}
+.gridSection .grid07 {width:348px;height:232px;top:680px;left:503px;}
+.gridSection .grid08 {width:162px;height:247px;top:680px;left:861px;}
+.gridSection .grid09 {width:247px;height:247px;top:680px;right:0;}
+.gridSection .grid10 {width:493px;height:338px;top:1018px;left:0;}
+.gridSection .grid11 {width:348px;height:435px;top:921px;left:503px;}
+.gridSection .grid12 {width:419px;height:420px;top:936px;right:0;}
+.gridSection .grid13 {width:467px;height:311px;top:1366px;left:0;}
+.gridSection .grid14 {width:227px;height:128px;bottom:0;left:0;}
+.gridSection .grid15 {width:230px;height:128px;bottom:0;left:237px;}
+.gridSection .grid16 {width:638px;height:359px;top:0;right:0;}
+.gridSection .grid17 {width:803px;height:449px;bottom:0;right:0;}
+.gridSection .video {width:883px;}
+.gridSection .youtube,
+.gridSection .youtube iframe {width:100%;height:100%;}
+.gridSection .youtube img {
+	position: absolute;
+	top: 0; left: 0;
+}
+
+.cultureSection {
+	position: relative;
+	height: 946px;
+	color: #fff;
+}
+.cultureSection .contentsWrap {
+	position: relative;
+	z-index: 2;
+}
+.cultureSection .tit {
+	position: absolute;
+	top: 100px; left: 250px;
+	font-size: 60px;
+	opacity: 0;
+	transition: all .5s;
+}
+.cultureSection .active .tit {
+	left: 350px;
+	opacity: 1;
+}
+.cultureSection .txt1 {
+	position: relative;
+	left: 100px;
+	opacity: 0;
+	transition: all .5s;
+
+	padding: 118px 0 0 610px;
+	font-size: 20px;
+	font-weight: 100;
+	line-height: 1.8;
+}
+.cultureSection .active .txt1 {
+	left: 0;
+	opacity: 1;
+}
+.cultureSection .txt2 {
+	position: relative;
+	top: 100px;
+	opacity: 0;
+	transition: all .5s;
+
+	margin: 45px 0 0 120px;
+	font-size: 48px;
+	font-weight: 700;
+	line-height: 1.8;
+}
+.cultureSection .active .txt2 {
+	top: 0;
+	opacity: 1;
+}
+
+.cultureSection .bg {
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+	clip: rect(0,9999999px,946px,0);
+}
+.cultureSection .bg .inner {
+	position: fixed;
+	top: 0; right: 0; bottom: 0; left: 0;
+}
+.cultureSection .bg img {
+	position: relative;
+	min-width: 100%;
+	height: 100%;
+	margin-top: 250px;
+}
+.cultureSection .bg:after {
+	content: "";
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+	background: rgba(0,0,0,.8);
+}
+.cultureSection .iconList {
+	margin: 130px 250px 0 50px;
+}
+.cultureSection .iconList:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.cultureSection .iconList li {
+	position: relative;
+	top: 100px;
+	opacity: 0;
+	transition: all .5s;
+	float: left;
+	width: 25%;
+	text-align: center;
+}
+.cultureSection .iconList.active li {
+	top: 0;
+	opacity: 1;
+}
+.cultureSection .iconList .icon {
+	display: block;
+	height: 120px;
+}
