@@ -1,7 +1,27 @@
 var objDefault = {
 	'win' : $(window),
 	'doc' : $('html'),
-	'body' : $('body')
+	'body' : $('body'),
+	'cont' : $('#container')
+}
+function pageLoad(page){
+	$.ajax({
+		url : page + '.html',
+		dataType: 'html',
+		success : function(data){
+			// var hashtag = location.hash.substring(1, location.hash.length).replace(/ /gi, '%20');
+			// history.replaceState({}, null, location.href.replace(location.hash,hashtag));
+			objDefault.cont.html(data);
+			var imgLeng = 0;
+			var leng = objDefault.cont.find('img').length;
+			objDefault.cont.find('img').on('load', function(){
+				imgLeng++;
+				if(imgLeng == leng) {
+					objSet();
+				}
+			});
+		}
+	});
 }
 
 function listOpen(_this) {
@@ -35,7 +55,7 @@ var fixedWrap = {};
 var startObjPos = {};
 var endObjPos = {};
 
-function init() {
+function objSet() {
 	var start = 0;
 	var end = 0;
 	objInfoArry.forEach(function(idx){
@@ -88,10 +108,6 @@ function scrollPos() {
 	});
 }
 objDefault.win.on({
-	'load' : function() {
-		init();
-		scrollPos();
-	},
 	'scroll': function() {
 		scrollPos();
 	}

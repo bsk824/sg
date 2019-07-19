@@ -212,6 +212,7 @@
 	margin-top: 250px;
 }
 
+.ourSection {height: auto;}
 .ourSection .contentsWrap {
 	width: 1480px;
 	padding-left: 240px;
@@ -236,7 +237,11 @@
 .ourSection .active .txt {
 	left: 0;
 }
-.ourSection .iconList {margin: 120px 0 0;}
+.ourSection .iconList {
+	width: 100%;
+	overflow: hidden;
+	margin: 120px 0 0;
+}
 .ourSection .iconList:after {
 	content: "";
 	display: block;
@@ -272,9 +277,10 @@
 
 .imgSetWrap {
 	position: relative;
-	margin-top: -600px;
+	margin-top: -200px;
 	height: 3000px;
 	overflow: hidden;
+	background: #fff;
 }
 .imgSetWrap:after {
 	content: "";
@@ -304,9 +310,13 @@
 .imgSetWrap .imgSet .imgPos3 {top: 0; left: 1880px;}
 
 .gridSection {
+	padding: 90px 0;
+	background: #fff;
+}
+.gridSection .inner {
 	position: relative;
 	width: 1280px;
-	margin: 90px auto;
+	margin: 0 auto;
 }
 .gridSection .head {
 	overflow: hidden;
