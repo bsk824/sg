@@ -361,23 +361,23 @@
 	top: 0; right: 0; bottom: 0; left: 0;
 	background: rgba(255,255,255, .6);
 }
-.gridSection .grid01 {width:317px;height:305px;top:0;left:0;}
-.gridSection .grid02 {width:305px;height:305px;top:0;left:328px;}
-.gridSection .grid03 {width:632px;height:355px;top:315px;left:0;}
-.gridSection .grid04 {width:428px;height:301px;top:369px;left:642px;}
-.gridSection .grid05 {width:200px;height:301px;top:369px;right:0;}
-.gridSection .grid06 {width:493px;height:329px;top:680px;left:0;}
-.gridSection .grid07 {width:348px;height:232px;top:680px;left:503px;}
-.gridSection .grid08 {width:162px;height:247px;top:680px;left:861px;}
-.gridSection .grid09 {width:247px;height:247px;top:680px;right:0;}
-.gridSection .grid10 {width:493px;height:338px;top:1018px;left:0;}
-.gridSection .grid11 {width:348px;height:435px;top:921px;left:503px;}
-.gridSection .grid12 {width:419px;height:420px;top:936px;right:0;}
-.gridSection .grid13 {width:467px;height:311px;top:1366px;left:0;}
-.gridSection .grid14 {width:227px;height:128px;bottom:0;left:0;}
-.gridSection .grid15 {width:230px;height:128px;bottom:0;left:237px;}
-.gridSection .grid16 {width:638px;height:359px;top:0;right:0;}
-.gridSection .grid17 {width:803px;height:449px;bottom:0;right:0;}
+.gridMain .grid01 {width:317px;height:305px;top:0;left:0;}
+.gridMain .grid02 {width:305px;height:305px;top:0;left:328px;}
+.gridMain .grid03 {width:632px;height:355px;top:315px;left:0;}
+.gridMain .grid04 {width:428px;height:301px;top:369px;left:642px;}
+.gridMain .grid05 {width:200px;height:301px;top:369px;right:0;}
+.gridMain .grid06 {width:493px;height:329px;top:680px;left:0;}
+.gridMain .grid07 {width:348px;height:232px;top:680px;left:503px;}
+.gridMain .grid08 {width:162px;height:247px;top:680px;left:861px;}
+.gridMain .grid09 {width:247px;height:247px;top:680px;right:0;}
+.gridMain .grid10 {width:493px;height:338px;top:1018px;left:0;}
+.gridMain .grid11 {width:348px;height:435px;top:921px;left:503px;}
+.gridMain .grid12 {width:419px;height:420px;top:936px;right:0;}
+.gridMain .grid13 {width:467px;height:311px;top:1366px;left:0;}
+.gridMain .grid14 {width:227px;height:128px;bottom:0;left:0;}
+.gridMain .grid15 {width:230px;height:128px;bottom:0;left:237px;}
+.gridMain .grid16 {width:638px;height:359px;top:0;right:0;}
+.gridMain .grid17 {width:803px;height:449px;bottom:0;right:0;}
 
 .gridSection .video video {width:883px;}
 .gridSection .youtube,
