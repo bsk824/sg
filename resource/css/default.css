@@ -48,3 +48,21 @@ button {
 button::-moz-focus-inner {padding:0;border:0;}
 pre {white-space:pre-wrap;font-family:'Noto Sans KR';}
 article, aside, canvas, details, figcaption, figure, footer, header, hgroup, nav, menu, nav, section {display:block;}
+
+.btnLink {
+	display: inline-block;
+	padding: 0 50px;
+	border: 1px solid #fff;
+	color: #fff;
+	font-size: 18px;
+	line-height: 50px;
+	transition: all .3s;
+}
+.btnLink:hover {
+	background: #000;
+	border-color: #000;
+}
+
+.colorType1 {
+	color: #a29061;
+}

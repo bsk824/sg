@@ -1,6 +1,6 @@
 
-	<nav>
-		<ul>
+	<nav class="brandMenu">
+		<ul class="list">
 			<li><a href="#brand1.html">Starter</a></li>
 			<li><a href="#brand2.html">Starter Black Label</a></li>
 			<li><a href="#brand3.html">Zoo York</a></li>
@@ -9,13 +9,13 @@
 		</ul>
 	</nav>
 
-	<section>
-		<div>
-			<h2><img src="resource/images/brands/img_zooyork_logo.png" alt="ZOO YORK"></h2>
-			<a href="#">e-shop</a>
-			<section>
-				<h3>New york itself was<br>"not new, but a zoo"</h3>
-				<p>
+	<section class="brandTop">
+		<div class="contentsWrap">
+			<h2 class="brandTit"><img src="resource/images/brands/img_zooyork_logo.png" alt="ZOO YORK"></h2>
+			<a href="#" class="btnLink">e-shop</a>
+			<section class="brandDesc">
+				<h3 class="tit">New york itself was<br>"not new, but a <span class="colorType1">zoo</span>"</h3>
+				<p class="txt">
 					Championed by a tight-knit crew of progressive minds who lived and breathed NYC’s raw<br>
 					creative energy, a unique social movement began to take root that was strongly<br>
 					influenced by New York’s unforgiving streets and colorful weave of global flavors.<br>
@@ -24,9 +24,9 @@
 					took on a life of its own and became an unstoppable global force.
 				</p>
 			</section>
-			<section>
-				<h3>Symbolize NYC's</h3>
-				<p>
+			<section class="brandDesc2">
+				<h3 class="tit">Symbolize <span class="colorType1">NYC's</span></h3>
+				<p class="txt">
 					By the dawn of the ’80s, the term Zoo York had come to firmly symbolize NYC’s<br>
 					underground sect of artists, b-boys, skateboarders, punks, and their various creative off-shoots.<br>
 					The Zoo York revolution was in full effect as graf writers bombed trains,<br>
@@ -34,9 +34,9 @@
 					now legendary spots like Astor, Washington Square, and the Brooklyn Banks.
 				</p>
 			</section>
-			<section>
-				<h3>Today, Zoo York</h3>
-				<p>
+			<section class="brandDesc">
+				<h3 class="tit">Today, <span class="colorType1">Zoo York</span></h3>
+				<p class="txt">
 					Today, Zoo York is a highly evolved, globally recognized brand with unbreakable East Coast<br>
 					attitude and dialect. As it has since day one, Zoo’s product line continues to be heavily<br>
 					influenced by skateboarding, graffiti, hip-hop, punk, and everything in between.<br>
@@ -47,26 +47,41 @@
 					biggest names in the skateboard community.
 				</p>
 			</section>
-			<div class="img">
-				<img src="resource/images/brands/img_zooyork_board.png" alt="">
+			<div class="img obj2">
+				<img src="resource/images/brands/img_zooyork_board.png" alt="" class="movObj">
 			</div>
-			<div class="bg">
-				<span><img src="resource/images/brands/bg_zooyork_top.jpg" alt=""></span>
+			<div class="bg obj1">
+				<img src="resource/images/brands/bg_zooyork_top.jpg" alt="" class="movObj">
 			</div>
 		</div>
 	</section>
 
-	<div>
-		<div class="img"><img src="resource/images/brands/img_zooyork_boards.png" alt=""></div>
-		<div class="bg">
-			<span><img src="resource/images/brands/bg_zooyork_board.jpg" alt=""></span>
+	<div id="" class="rollingImgWrap">
+		<div class="img movWrap">
+			<span>
+				<img src="resource/images/brands/img_zooyork_boards.png" alt="">
+			</span>
+			<span>
+				<img src="resource/images/brands/img_zooyork_boards.png" alt="">
+			</span>
+			<span>
+				<img src="resource/images/brands/img_zooyork_boards.png" alt="">
+			</span>
+		</div>
+		<div class="bg obj4">
+			<span class="inner">
+				<img src="resource/images/brands/bg_zooyork_board.jpg" alt="" class="movObj">
+			</span>
 		</div>
 	</div>
+	<script>
+		roll('rollingImgWrap', 'left');
+	</script>
 
-	<section>
-		<div>
-			<h3>Brand DNA</h3>
-			<p>
+	<section class="dnaSection">
+		<div class="contentsWrap">
+			<h3 class="tit">Brand DNA</h3>
+			<p class="txt">
 				Today, Zoo York has become a globally recognized brand with <br>
 				unbreakable East Coast attitude and dialect.  <br>
 				Zoo’s product line continues to draw energy from its primary <br>
@@ -77,7 +92,7 @@
 				to be backed strongly by the Zoo Skate team, <br>
 				which includes some of the biggest names in the skate community.
 			</p>
-			<ul>
+			<ul class="list">
 				<li>Skate</li>
 				<li>New York city</li>
 				<li>Heritage</li>
@@ -93,62 +108,86 @@
 		</div>
 	</section>
 
-	<section>
-		<div>
-			<h3>Zoo York in Global</h3>
-			<p>The ZooYork can be found in many countries all over the world.</p>
+	<section class="globalSection">
+		<div class="contentsWrap">
+			<h3 class="tit">Zoo York in Global</h3>
+			<p class="txt">The ZooYork can be found in many countries all over the world.</p>
 		</div>
 		<div class="bg">
 			<span><img src="resource/images/brands/img_zooyork_map.jpg" alt=""></span>
 		</div>
 	</section>
 
-	<div>
-		<div>
+	<div class="productWrap">
+		<div class="inner">
 
-			<div>
-				<div>
-					<p>Zoo York<br>Kennedy Canvas<br>Classic</p>
-					<a href="#">Detail View</a>
-					<div class="img">
-						<img src="resource/images/brands/img_zooyork_product01.png" alt="">
+			<div class="product1">
+				<div class="fixedWrap">
+					<div class="contentsWrap">
+						<p class="name">Zoo York<br>Kennedy Canvas<br>Classic</p>
+						<a href="#" class="btnLink">Detail View</a>
+						<div class="img">
+							<img src="resource/images/brands/img_zooyork_product01.png" alt="">
+						</div>
+					</div>
+					<div class="bg">
+						<div class="movWrap">
+							<img src="resource/images/brands/bg_zooyork_product01.jpg" alt="">
+							<img src="resource/images/brands/bg_zooyork_product01.jpg" alt="">
+						</div>
 					</div>
 				</div>
-				<div class="bg">
-					<img src="" alt="">
-				</div>
+				<script>
+					roll('product1', 'top');
+				</script>
 			</div>
 
-			<div>
-				<div>
-					<p>Zoo York Boys<br>Embroidered Rose Logo<br>Snapback Hat</p>
-					<a href="#">Detail View</a>
-					<div class="img">
-						<img src="resource/images/brands/img_zooyork_product02.png" alt="">
+			<div class="product2">
+				<div class="fixedWrap">
+					<div class="contentsWrap">
+						<p class="name">Zoo York Boys<br>Embroidered Rose Logo<br>Snapback Hat</p>
+						<a href="#" class="btnLink">Detail View</a>
+						<div class="img">
+							<img src="resource/images/brands/img_zooyork_product02.png" alt="">
+						</div>
+					</div>
+					<div class="bg">
+						<div class="movWrap">
+							<img src="resource/images/brands/bg_zooyork_product02.jpg" alt="">
+							<img src="resource/images/brands/bg_zooyork_product02.jpg" alt="">
+						</div>
 					</div>
 				</div>
-				<div class="bg">
-					<img src="" alt="">
-				</div>
+				<script>
+					roll('product2', 'top');
+				</script>
 			</div>
 			
-			<div>
-				<div>
-					<p>Zoo York<br>Mens Revo<br>Aviator Sunglasses</p>
-					<a href="#">Detail View</a>
-					<div class="img">
-						<img src="resource/images/brands/img_zooyork_product03.png" alt="">
+			<div class="product3">
+				<div class="fixedWrap">
+					<div class="contentsWrap">
+						<p class="name">Zoo York<br>Mens Revo<br>Aviator Sunglasses</p>
+						<a href="#" class="btnLink">Detail View</a>
+						<div class="img">
+							<img src="resource/images/brands/img_zooyork_product03.png" alt="">
+						</div>
+					</div>
+					<div class="bg">
+						<div class="movWrap">
+							<img src="resource/images/brands/bg_zooyork_product03.jpg" alt="">
+							<img src="resource/images/brands/bg_zooyork_product03.jpg" alt="">
+						</div>
 					</div>
 				</div>
-				<div class="bg">
-					<img src="" alt="">
-				</div>
+				<script>
+					roll('product3', 'top');
+				</script>
 			</div>
 			
 		</div>
 	</div>
 
-	<section class="gridSection">
+	<section class="gridSection gridBrandZoo">
 		<div class="inner">
 			<div class="head scrollClsObj">
 				<h3 class="tit">PRODUCT</h3>
@@ -161,25 +200,24 @@
 				</p>
 			</div>
 			<div class="list scrollClsObj">
-				<ul class="gridBrand">
-					<li class="grid01"><button type="button" onclick="layerShow(this)" data-img="img_grid01_big.jpg"><img src="resource/images/img_grid01.jpg" alt=""></button></li>
-					<li class="grid02"><button type="button" onclick="layerShow(this)" data-img="img_grid02_big.jpg"><img src="resource/images/img_grid02.jpg" alt=""></button></li>
-					<li class="grid03"><button type="button" onclick="layerShow(this)" data-img="img_grid03_big.jpg"><img src="resource/images/img_grid03.jpg" alt=""></button></li>
-					<li class="grid04"><button type="button" onclick="layerShow(this)" data-img="img_grid04_big.jpg"><img src="resource/images/img_grid04.jpg" alt=""></button></li>
-					<li class="grid05"><button type="button" onclick="layerShow(this)" data-img="img_grid05_big.jpg"><img src="resource/images/img_grid05.jpg" alt=""></button></li>
-					<li class="grid06"><button type="button" onclick="layerShow(this)" data-img="img_grid06_big.jpg"><img src="resource/images/img_grid06.jpg" alt=""></button></li>
-					<li class="grid07"><button type="button" onclick="layerShow(this)" data-img="img_grid07_big.jpg"><img src="resource/images/img_grid07.jpg" alt=""></button></li>
-					<li class="grid08"><button type="button" onclick="layerShow(this)" data-img="img_grid08_big.jpg"><img src="resource/images/img_grid08.jpg" alt=""></button></li>
-					<li class="grid09"><button type="button" onclick="layerShow(this)" data-img="img_grid09_big.jpg"><img src="resource/images/img_grid09.jpg" alt=""></button></li>
+				<ul>
+					<li class="grid01"><button type="button" onclick="layerShow(this)" data-img="/brands/img_zooyork_grid01_big.jpg"><img src="resource/images/brands/img_zooyork_grid01.jpg" alt=""></button></li>
+					<li class="grid02"><button type="button" onclick="layerShow(this)" data-img="/brands/img_zooyork_grid02_big.jpg"><img src="resource/images/brands/img_zooyork_grid02.jpg" alt=""></button></li>
+					<li class="grid03"><button type="button" onclick="layerShow(this)" data-img="/brands/img_zooyork_grid03_big.jpg"><img src="resource/images/brands/img_zooyork_grid03.jpg" alt=""></button></li>
+					<li class="grid04"><button type="button" onclick="layerShow(this)" data-img="/brands/img_zooyork_grid04_big.jpg"><img src="resource/images/brands/img_zooyork_grid04.jpg" alt=""></button></li>
+					<li class="grid05"><button type="button" onclick="layerShow(this)" data-img="/brands/img_zooyork_grid05_big.jpg"><img src="resource/images/brands/img_zooyork_grid05.jpg" alt=""></button></li>
+					<li class="grid06"><button type="button" onclick="layerShow(this)" data-img="/brands/img_zooyork_grid06_big.jpg"><img src="resource/images/brands/img_zooyork_grid06.jpg" alt=""></button></li>
+					<li class="grid07"><button type="button" onclick="layerShow(this)" data-img="/brands/img_zooyork_grid07_big.jpg"><img src="resource/images/brands/img_zooyork_grid07.jpg" alt=""></button></li>
+					<li class="grid08"><button type="button" onclick="layerShow(this)" data-img="/brands/img_zooyork_grid08_big.jpg"><img src="resource/images/brands/img_zooyork_grid08.jpg" alt=""></button></li>
 				</ul>
 			</div>
 		</div>
 	</section>
 
-	<section>
-		<div>
-			<h3>Why ZOO YORK?</h3>
-			<p>
+	<section class="whySection">
+		<div class="contentsWrap">
+			<h3 class="tit">Why ZOO YORK?</h3>
+			<p class="txt">
 				Strong and instantly recognizable logo<br>
 				Unique, global skate-inspired lifestyle brand with deep and authentic NYC roots<br>
 				First brand to extend skate culture beyond West Coast USA<br>
@@ -192,9 +230,21 @@
 				which is provided monthly
 			</p>
 		</div>
-		<div class="bg">
-			<span>
-				<img src="resource/images/brands/bg_zooyork_why.jpg" alt="">
+		<div class="bg obj3">
+			<span class="inner">
+				<img src="resource/images/brands/bg_zooyork_why.jpg" alt="" class="movObj">
 			</span>
 		</div>
 	</section>
+
+	<script>
+		var objInfoArry = [
+			{name : 'obj1', y : -500, start: 'top'},
+			{name : 'obj2', y : 500},
+			{name : 'obj3', y : -500},
+			{name : 'obj4', y : -500},
+			{name : 'product1', cls : 'fixed'},
+			{name : 'product2', cls : 'fixed'},
+			{name : 'product3', cls : 'fixed'},
+		];
+	</script>

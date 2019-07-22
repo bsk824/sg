@@ -310,6 +310,8 @@
 .imgSetWrap .imgSet .imgPos3 {top: 0; left: 1880px;}
 
 .gridSection {
+	position: relative;
+	z-index: 2;
 	padding: 90px 0;
 	background: #fff;
 }
@@ -344,15 +346,20 @@
 	margin-left: 620px;
 	font-size: 20px;
 	font-weight: 100;
-} 
+}
 .gridSection .active .txt {
 	left: 0;
 	opacity: 1;
 }
+.gridBrandZoo .head .tit {left: 0;}
+.gridBrandZoo .head .txt {margin-left: 500px;}
+
 .gridSection .list {
 	position: relative;
 	height: 1815px;
 }
+.gridBrandZoo .list {height: 590px;}
+
 .gridSection .list li {position:absolute;overflow:hidden;}
 .gridSection button {position: relative;}
 .gridSection button:hover:after {
@@ -378,6 +385,15 @@
 .gridMain .grid15 {width:230px;height:128px;bottom:0;left:237px;}
 .gridMain .grid16 {width:638px;height:359px;top:0;right:0;}
 .gridMain .grid17 {width:803px;height:449px;bottom:0;right:0;}
+
+.gridBrandZoo .grid01 {width:255px;height:302px;top:0;left:0;}
+.gridBrandZoo .grid02 {width:240px;height:302px;top:0;left:256px;}
+.gridBrandZoo .grid03 {width:270px;height:302px;top:0;left:515px}
+.gridBrandZoo .grid04 {width:485px;height:302px;top:0;right:0;}
+.gridBrandZoo .grid05 {width:288px;height:280px;bottom:0;left:0;}
+.gridBrandZoo .grid06 {width:280px;height:280px;bottom:0;left:298px;}
+.gridBrandZoo .grid07 {width:219px;height:280px;bottom:0;left:588px;}
+.gridBrandZoo .grid08 {width:463px;height:280px;bottom:0;right:0;}
 
 .gridSection .video video {width:883px;}
 .gridSection .youtube,
@@ -495,6 +511,200 @@
 .cultureSection .iconList .icon {
 	display: block;
 	height: 120px;
+}
+
+.brandMenu {
+	position: absolute;
+	top: 200px; right: 100px;
+	z-index: 10;
+	text-align: right;
+}
+.brandMenu a {
+	font-size: 36px;
+	font-weight: 800;
+	color: #A0A09F;
+	transition: all .3s;
+}
+.brandMenu a:hover {
+	color: #fff;
+}
+
+.brandTop {
+	position: relative;
+	padding: 0 0 200px;
+}
+.brandTop .bg {
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+	overflow: hidden;
+}
+.brandTop .bg img {height: 120%;}
+.brandTop .brandTit {
+	position: relative;
+	padding: 550px 0 50px;
+	z-index: 2;
+}
+.brandTop .btnLink {
+	position: relative;
+	z-index: 3;
+}
+.brandTop [class*="brandDesc"] {
+	position: relative;
+	color: #fff;
+	margin: 100px 0 0;
+	z-index: 3;
+}
+.brandTop .img {
+	position: absolute;
+	top: 60%; right: 5%;
+	z-index: 2;
+}
+
+[class*="brandDesc"] .tit {
+	font-size: 68px;
+	line-height: 1.2;
+}
+[class*="brandDesc"] .txt {
+	margin: 50px 0 0;
+	font-size: 24px;
+	font-weight: 100;
+	letter-spacing: -.2px;
+	line-height: 2.2;
+}
+.brandDesc2 {text-align: right;}
+
+.rollingImgWrap {
+	position: relative;
+	height: 800px;
+	overflow: hidden;
+}
+.rollingImgWrap .img {
+	display: table;
+	position: absolute;
+	right: 0; bottom: -300px; left: 0;
+	z-index: 2;
+	white-space: nowrap;
+}
+.rollingImgWrap .img span {
+	display: table-cell;
+}
+.rollingImgWrap .bg {
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left:0;
+}
+.rollingImgWrap .bg img {
+	width: 100%;
+}
+
+.dnaSection {
+	position: relative;
+	padding: 200px 0 360px;
+	color: #010101;
+}
+.dnaSection .tit {
+	font-size: 68px;
+}
+.dnaSection .txt {
+	font-size: 26px;
+	font-weight: 300;
+	line-height: 2.2;
+}
+.dnaSection .list {
+	margin: 100px 0 0;
+	font-size: 48px;
+	font-weight: 300;
+}
+.dnaSection .list li {
+	margin: 20px 0 0;
+}
+.dnaSection .img {
+	position: absolute;
+	right: 0; bottom: 0;
+}
+
+.globalSection {
+	padding: 100px 0 0;
+	background: #000;
+	color: #fff;
+}
+.globalSection .tit {
+	font-size: 64px;
+}
+.globalSection .txt {
+	margin: 20px 0 0;
+	font-size: 24px;
+	font-weight: 300;
+}
+.globalSection .bg {
+	position: relative;
+	margin: 100px 0 0;
+}
+.globalSection .bg img {
+	width: 100%;
+}
+
+.productWrap [class*="product"] {
+	position: relative;
+	height: 100vh;
+}
+.productWrap [class*="product"] .contentsWrap {
+	height: 50%;
+	overflow: hidden;
+}
+.productWrap [class*="product"] .bg {
+	height: 50%;
+	overflow: hidden;
+}
+.productWrap [class*="product"] .bg .movWrap {
+	position: relative;
+}
+.productWrap .fixedWrap {height: 100%;}
+.productWrap .product1 {background: #898989;}
+.productWrap .product2 {background: #e2a032;}
+.productWrap .product3 {background: #4c4c9e;}
+.productWrap .name {
+	padding: 120px 0 0;
+	color: #fff;
+	font-size: 68px;
+	font-weight: 700;
+	line-height: 1.2;
+}
+.productWrap .img {
+	position: absolute;
+	top: 0; left:0;
+	z-index: 2;
+}
+
+.whySection {position: relative;}
+.whySection .contentsWrap {
+	position: relative;
+	height: 972px;
+	z-index: 2;
+}
+.whySection .tit {
+	padding: 150px 0 20px;
+	font-size: 68px;
+	font-weight: 700;
+}
+.whySection .txt {
+	font-size: 26px;
+	font-weight: 300;
+	line-height: 2;
+}
+.whySection .bg {
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+	z-index: 1;
+	clip: rect(0,9999999px,972px,0);
+}
+.whySection .bg .inner {
+	position: fixed;
+	top: 0; right: 0; bottom: 0; left: 0;
+}
+.whySection .bg .inner img {
+	position: absolute;
+	bottom: 0; left: 0;
+	width: 100%;
 }
 
 .layerPop {

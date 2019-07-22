@@ -50,6 +50,42 @@ function layerClose() {
 	layer.remove();
 }
 
+function roll(obj, dir) {
+	var wrap = $('.'+ obj);
+	var imgWrap = wrap.find('.movWrap');
+	var img = imgWrap.find('img');
+	var resetNum = 0;
+	var pos = 0;
+	var timer;
+
+	img.on('load', function(){
+		clearInterval(timer);
+		if(dir === 'left') {
+			resetNum = this.width;
+			timer = setInterval(function(){
+				pos--;
+				if('-' + resetNum == pos) {
+					imgWrap.css('left', 0);
+					pos = 0;
+				} else {
+					imgWrap.css('left', pos);
+				}
+			},30);
+		} else if(dir === 'top') {
+			resetNum = this.height;
+			timer = setInterval(function(){
+				pos--;
+				if('-' + resetNum == pos) {
+					imgWrap.css('top', 0);
+					pos = 0;
+				} else {
+					imgWrap.css('top', pos);
+				}
+			},30);
+		}
+	});
+}
+
 var movObj = {};
 var fixedWrap = {};
 var startObjPos = {};
@@ -57,7 +93,7 @@ var endObjPos = {};
 
 function objSet() {
 	var start = 0;
-	var end = 0;
+	var end = 0;;
 	objInfoArry.forEach(function(idx){
 		var $this = $('.' + idx.name);
 		start = $this.offset().top;
@@ -75,8 +111,13 @@ function scrollObj(idx, scroll, start) {
 		(endObjPos[idx.name] <= start) ? fixedWrap[idx.name].addClass('end') : fixedWrap[idx.name].removeClass('end')
 	} else {
 		if(startObjPos[idx.name] < start && endObjPos[idx.name] > scroll) {
-			var posY = ((start - startObjPos[idx.name]) / (endObjPos[idx.name] - startObjPos[idx.name]) * idx.y) / 2;
-			var posX = ((start - startObjPos[idx.name]) / (endObjPos[idx.name] - startObjPos[idx.name]) * idx.x) / 2;
+			if(idx.start) {
+				var posY = ((scroll - startObjPos[idx.name]) / (endObjPos[idx.name] - startObjPos[idx.name]) * idx.y);
+				var posX = ((scroll - startObjPos[idx.name]) / (endObjPos[idx.name] - startObjPos[idx.name]) * idx.x);
+			} else {
+				var posY = ((start - startObjPos[idx.name]) / (endObjPos[idx.name] - startObjPos[idx.name]) * idx.y) / 2;
+				var posX = ((start - startObjPos[idx.name]) / (endObjPos[idx.name] - startObjPos[idx.name]) * idx.x) / 2;
+			}
 			style['top'] = posY + 'px';
 			style['left'] = posX + 'px';
 		} else if(startObjPos[idx.name] >= start) {
