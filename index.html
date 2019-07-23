@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>SPARKS GLENCOE</title>
@@ -31,7 +31,7 @@
 		<nav id="gnb">
 			<ul class="category">
 				<li><a href="#company">Company</a></li>
-				<li><a href="#brands">Brands</a></li>
+				<li><a href="#brands/starter">Brands</a></li>
 				<li><a href="#contact">Contact</a></li>
 			</ul>
 			<div class="util">
@@ -47,13 +47,24 @@
 					<div class="list">
 						<ul>
 							<li><a href="#company">Company</a></li>
-							<li><a href="#brands">Brands</a></li>
+							<li><a href="#brands/starter">Brands</a></li>
 							<li><a href="#contact">Contact</a></li>
 						</ul>
 					</div>
 				</div>
 			</div>
 		</nav>
+		
+		<nav class="brandMenu">
+			<ul class="list">
+				<li data-brand="starter" class="active"><a href="#brands/starter" onclick="activeMenu(this);">Starter</a></li>
+				<li data-brand="starter_black"><a href="#brands/starter_black" onclick="activeMenu(this);">Starter Black Label</a></li>
+				<li data-brand="zooyork"><a href="#brands/zooyork" onclick="activeMenu(this);">Zoo York</a></li>
+				<li data-brand="undercon"><a href="#brands/undercon" onclick="activeMenu(this);">Undercon</a></li>
+				<li data-brand="creative_recreation"><a href="#brands/creative_recreation" onclick="activeMenu(this);">Creative Recreation</a></li>
+			</ul>
+		</nav>
+
 	</header>
 
 	<div id="container">
@@ -77,16 +88,15 @@
 	<![endif]-->
 	<script type="text/javascript" src="resource/js/ui.js"></script>
 	<script>
-		var page;
 		$(window).on({
 			"load" : function() {
 				if (window.location.href.indexOf('#') > -1) {
-					page = window.location.href.split('#')[1];
+					var page = window.location.href.split('#')[1];
 					pageLoad(page);
 				}
 			},
 			"hashchange" : function() {
-				page = window.location.href.split('#')[1];
+				var page = window.location.href.split('#')[1];
 				pageLoad(page);
 			}
 		});

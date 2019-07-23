@@ -56,6 +56,8 @@
 }
 
 #footer {
+	position: relative;
+	z-index: 2;
 	padding: 35px 0 120px;
 	background: #000;
 	color: #fff;
@@ -512,13 +514,14 @@
 	display: block;
 	height: 120px;
 }
-
 .brandMenu {
+	display: none;
 	position: absolute;
 	top: 200px; right: 100px;
 	z-index: 10;
 	text-align: right;
 }
+.brands .brandMenu {display: block;}
 .brandMenu a {
 	font-size: 36px;
 	font-weight: 800;
@@ -531,7 +534,7 @@
 
 .brandTop {
 	position: relative;
-	padding: 0 0 200px;
+	padding: 0 0 180px;
 }
 .brandTop .bg {
 	position: absolute;
@@ -541,7 +544,8 @@
 .brandTop .bg img {height: 120%;}
 .brandTop .brandTit {
 	position: relative;
-	padding: 550px 0 50px;
+	margin: 0 0 180px;
+	padding: 340px 0 0;
 	z-index: 2;
 }
 .brandTop .btnLink {
@@ -550,27 +554,46 @@
 }
 .brandTop [class*="brandDesc"] {
 	position: relative;
+	overflow: hidden;
+	margin: 80px 0 0;
 	color: #fff;
-	margin: 100px 0 0;
 	z-index: 3;
 }
 .brandTop .img {
 	position: absolute;
-	top: 60%; right: 5%;
+	top: 50%; right: 5%;
 	z-index: 2;
 }
 
 [class*="brandDesc"] .tit {
+	position: relative;
+	opacity: 0;
+	transition: all .5s;
+
+	margin: 0 0 20px;
 	font-size: 68px;
 	line-height: 1.2;
 }
 [class*="brandDesc"] .txt {
-	margin: 50px 0 0;
+	position: relative;
+	opacity: 0;
+	transition: all .5s;
+
 	font-size: 24px;
 	font-weight: 100;
 	letter-spacing: -.2px;
 	line-height: 2.2;
 }
+.brandDesc .tit {left: -100px;}
+.brandDesc .txt {left: -100px;}
+.brandDesc2 .tit {left: 100px;}
+.brandDesc2 .txt {left: 100px;}
+
+[class*="brandDesc"] .active {
+	left: 0;
+	opacity: 1;
+}
+
 .brandDesc2 {text-align: right;}
 
 .rollingImgWrap {
@@ -602,9 +625,19 @@
 	color: #010101;
 }
 .dnaSection .tit {
+	position: relative;
+	left: -100px;
+	opacity: 0;
+	transition: all .5s;
+
 	font-size: 68px;
 }
 .dnaSection .txt {
+	position: relative;
+	left: -100px;
+	opacity: 0;
+	transition: all .5s;
+
 	font-size: 26px;
 	font-weight: 300;
 	line-height: 2.2;
@@ -615,22 +648,62 @@
 	font-weight: 300;
 }
 .dnaSection .list li {
+	position: relative;
+	left: -100px;
+	opacity: 0;
+	transition: all .5s;
+
 	margin: 20px 0 0;
+	z-index: 2;
 }
+.dnaSection .list .item2 {transition-delay: .2s;}
+.dnaSection .list .item3 {transition-delay: .3s;}
+.dnaSection .list .item4 {transition-delay: .4s;}
+.dnaSection .list .item5 {transition-delay: .5s;}
+.dnaSection .list .item6 {transition-delay: .6s;}
+.dnaSection .list .item7 {transition-delay: .7s;}
+.dnaSection .list .item8 {transition-delay: .8s;}
+.dnaSection .list .item9 {transition-delay: .9s;}
+.dnaSection .list .item10 {transition-delay: 1s;}
 .dnaSection .img {
+	overflow: hidden;
 	position: absolute;
 	right: 0; bottom: 0;
+
+}
+.dnaSection .img img {
+	position: relative;
+	left: 100px;
+	opacity: 0;
+	transition: all .5s;
+}
+.dnaSection .active,
+.dnaSection .active li,
+.dnaSection img.active {
+	left: 0;
+	opacity: 1;
 }
 
 .globalSection {
+	overflow: hidden;
 	padding: 100px 0 0;
 	background: #000;
 	color: #fff;
 }
 .globalSection .tit {
+	position: relative;
+	left: 100px;
+	opacity: 0;
+	transition: all .5s;
+
 	font-size: 64px;
 }
 .globalSection .txt {
+	position: relative;
+	left: 100px;
+	opacity: 0;
+	transition: all .5s;
+
 	margin: 20px 0 0;
 	font-size: 24px;
 	font-weight: 300;
@@ -642,10 +715,15 @@
 .globalSection .bg img {
 	width: 100%;
 }
+.globalSection .active {
+	left: 0;
+	opacity: 1;
+}
 
 .productWrap [class*="product"] {
 	position: relative;
-	height: 100vh;
+	height: 110vh;
+	z-index: 1;
 }
 .productWrap [class*="product"] .contentsWrap {
 	height: 50%;
@@ -659,37 +737,85 @@
 	position: relative;
 }
 .productWrap .fixedWrap {height: 100%;}
+.productWrap .fixed {
+	position: fixed;
+	top: 0; right: 0; bottom: 0; left: 0;
+}
 .productWrap .product1 {background: #898989;}
-.productWrap .product2 {background: #e2a032;}
-.productWrap .product3 {background: #4c4c9e;}
+.productWrap .product2 {background: #e2a032; z-index: 1;}
+.productWrap .product3 {background: #4c4c9e; z-index: 2;}
 .productWrap .name {
-	padding: 120px 0 0;
+	position: relative;
+	left: 100px;
+	opacity: 0;
+	transition: all .5s;
+
+	padding: 80px 0 0;
 	color: #fff;
 	font-size: 68px;
 	font-weight: 700;
 	line-height: 1.2;
 }
+.productWrap .btnLink {
+	position: relative;
+	left: 100px;
+	opacity: 0;
+	transition: all .5s;
+
+	margin: 30px 0 0;
+}
 .productWrap .img {
 	position: absolute;
-	top: 0; left:0;
+	top: 50%; left: 40%;
 	z-index: 2;
+	transform: translate(0, -50%);
+}
+.productWrap .img img {
+	position: relative;
+	left: -100px;
+	opacity: 0;
+	transition: all .5s;
+	transition-delay: .2s;
+}
+.productWrap .active .name,
+.productWrap .active .btnLink,
+.productWrap .active .img img {
+	left: 0;
+	opacity: 1;
 }
 
-.whySection {position: relative;}
+.whySection {
+	position: relative;
+	z-index: 2;
+}
 .whySection .contentsWrap {
 	position: relative;
 	height: 972px;
 	z-index: 2;
 }
 .whySection .tit {
+	position: relative;
+	left: -100px;
+	opacity: 0;
+	transition: all .5s;
+
 	padding: 150px 0 20px;
 	font-size: 68px;
 	font-weight: 700;
 }
 .whySection .txt {
+	position: relative;
+	left: -100px;
+	opacity: 0;
+	transition: all .5s;
+
 	font-size: 26px;
 	font-weight: 300;
 	line-height: 2;
+}
+.whySection .active {
+	left: 0;
+	opacity: 1;
 }
 .whySection .bg {
 	position: absolute;
