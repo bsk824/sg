@@ -326,43 +326,52 @@
 	overflow: hidden;
 	margin: 0 0 70px;
 }
-.gridSection .head .tit {
-	position: absolute;
-	top: 0; left: 45px;
-	opacity: 0;
-	transition: all .5s;
-
-	font-size: 60px;
-	line-height: 1;
-}
-.gridSection .active .tit {
-	left: 145px;
-	opacity: 1;
-}
-.gridSection .head .txt {
+.gridSection .tit,
+.gridSection .subTit,
+.gridSection .txt {
 	position: relative;
-	left: 100px;
+	left: -100px;
 	opacity: 0;
 	transition: all .5s;
-	
-	margin-left: 620px;
-	font-size: 20px;
-	font-weight: 100;
 }
+.gridSection .active .tit,
+.gridSection .active .subTit,
 .gridSection .active .txt {
 	left: 0;
 	opacity: 1;
 }
-.gridBrandZoo .head .tit {left: 0;}
+.gridSection .tit {
+	font-size: 60px;
+	line-height: 1;
+}
+.gridSection .subTit {
+	margin: 30px 0 5px;
+	font-size: 26px;
+}
+.gridSection .txt {
+	font-size: 20px;
+	font-weight: 100;
+}
+.gridSection .head .tit {
+	position: absolute;
+	top: 0;
+}
+.gridSection .head .txt {margin-left: 620px;}
 .gridBrandZoo .head .txt {margin-left: 500px;}
 
 .gridSection .list {
 	position: relative;
 	height: 1815px;
+	margin: 120px 0 0;
 }
-.gridBrandZoo .list {height: 590px;}
+.brands .gridSection .list {height: auto;}
 
 .gridSection .list li {position:absolute;overflow:hidden;}
+.gridSection .list:after {
+	content: "";
+	display: block;
+	clear: both;
+}
 .gridSection button {position: relative;}
 .gridSection button:hover:after {
 	content: "";
@@ -388,14 +397,11 @@
 .gridMain .grid16 {width:638px;height:359px;top:0;right:0;}
 .gridMain .grid17 {width:803px;height:449px;bottom:0;right:0;}
 
-.gridBrandZoo .grid01 {width:255px;height:302px;top:0;left:0;}
-.gridBrandZoo .grid02 {width:240px;height:302px;top:0;left:256px;}
-.gridBrandZoo .grid03 {width:270px;height:302px;top:0;left:515px}
-.gridBrandZoo .grid04 {width:485px;height:302px;top:0;right:0;}
-.gridBrandZoo .grid05 {width:288px;height:280px;bottom:0;left:0;}
-.gridBrandZoo .grid06 {width:280px;height:280px;bottom:0;left:298px;}
-.gridBrandZoo .grid07 {width:219px;height:280px;bottom:0;left:588px;}
-.gridBrandZoo .grid08 {width:463px;height:280px;bottom:0;right:0;}
+.brands .gridSection .list li {
+	position: static;
+	float: left;
+	margin: 23px 0 0 23px;
+}
 
 .gridSection .video video {width:883px;}
 .gridSection .youtube,
@@ -528,6 +534,7 @@
 	color: #A0A09F;
 	transition: all .3s;
 }
+.brandMenu .active a,
 .brandMenu a:hover {
 	color: #fff;
 }
@@ -564,6 +571,9 @@
 	top: 50%; right: 5%;
 	z-index: 2;
 }
+.starter .brandTop .img {top: 40%;}
+.starterBlack .brandTop .img {top: 40%;}
+.cr .brandTop .img {top: 40%;}
 
 [class*="brandDesc"] .tit {
 	position: relative;
@@ -615,13 +625,89 @@
 	position: absolute;
 	top: 0; right: 0; bottom: 0; left:0;
 }
-.rollingImgWrap .bg img {
+.rollingImgWrap .bg img {width: 100%;}
+
+.starterTeamWrap {
+	position: relative;
+	overflow: hidden;
+}
+.starterTeamWrap .img {
+	position: absolute;
+	right: 0; bottom: 0; left: 0;
+}
+.starterTeamWrap .img img {
+	position: relative;
+	top: 500px;
+	opacity: 0;
+	transition: all 1s;
+}
+.starterTeamWrap .active img {
+	top: 0;
+	opacity: 1;
+}
+
+.starterBlackWrap {
+	position: relative;
+	z-index: 0;
+	height: 800px;
+	overflow: hidden;
+}
+.starterBlackWrap .img {
+	position: relative;
+	height: 100%;
+	z-index: 2;
+}
+.starterBlackWrap .img img {position: relative;}
+.starterBlackWrap .img span {position: absolute; top: 0; bottom: 0; left: 0;}
+.starterBlackWrap .img .img1 img {margin: 400px 0 0 -800px;}
+.starterBlackWrap .img .img2 img {margin: 850px 0 0 -500px;}
+.starterBlackWrap .img .img3 img {margin: 800px 0 0 400px;}
+.starterBlackWrap .img .img4 img {margin: -100px 0 0 500px;}
+
+.starterBlackWrap .bg {
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+}
+.starterBlackWrap .bg img {
+	position: relative;
+	top: 0;
 	width: 100%;
+	margin-top: 100px;
+}
+
+.crWrap {overflow: hidden;}
+.crWrap div:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.crWrap span {
+	position: relative;
+	float: left;
+	width: 25%;
+}
+.crWrap span img {
+	position: relative;
+	width: 100%;
+	opacity: 0;
+
+	transition: all .5s;
+}
+.crWrap .item1 img {transition-delay: .2s;}
+.crWrap .item2 img {transition-delay: .4s;}
+.crWrap .item3 img {transition-delay: .6s;}
+.crWrap .item4 img {transition-delay: .8s;}
+
+.crWrap .line1 img {left: 100px;}
+.crWrap .line2 img {left: -100px;}
+.crWrap .active img {
+	left: 0;
+	opacity: 1;
 }
 
 .dnaSection {
 	position: relative;
-	padding: 200px 0 360px;
+	padding: 180px 0 360px;
 	color: #010101;
 }
 .dnaSection .tit {
@@ -631,6 +717,7 @@
 	transition: all .5s;
 
 	font-size: 68px;
+	z-index: 2;
 }
 .dnaSection .txt {
 	position: relative;
@@ -638,9 +725,11 @@
 	opacity: 0;
 	transition: all .5s;
 
+	margin: 10px 0 0;
 	font-size: 26px;
 	font-weight: 300;
 	line-height: 2.2;
+	z-index: 2;
 }
 .dnaSection .list {
 	margin: 100px 0 0;
@@ -703,10 +792,29 @@
 	left: 100px;
 	opacity: 0;
 	transition: all .5s;
+	overflow: hidden;
 
 	margin: 20px 0 0;
 	font-size: 24px;
 	font-weight: 300;
+}
+.globalSection .txt .list {
+	display: block;
+	margin-left: -15px;
+}
+.globalSection .txt .list span {
+	position: relative;
+	display: inline-block;
+	padding-left: 15px;
+	margin: 10px 0 10px 5px;
+	line-height:1;
+}
+.globalSection .txt .list span:after {
+	content: "";
+	position: absolute;
+	top: 3px; bottom: 0; left: 0;
+	width: 2px;
+	background: #3d3d3d;
 }
 .globalSection .bg {
 	position: relative;
@@ -723,6 +831,7 @@
 .productWrap [class*="product"] {
 	position: relative;
 	height: 110vh;
+	color: #fff;
 	z-index: 1;
 }
 .productWrap [class*="product"] .contentsWrap {
@@ -744,6 +853,16 @@
 .productWrap .product1 {background: #898989;}
 .productWrap .product2 {background: #e2a032; z-index: 1;}
 .productWrap .product3 {background: #4c4c9e; z-index: 2;}
+.starter .product1 {background: #c4222f;}
+.starter .product2 {background: #000;}
+.starter .product3 {background: #fff; color: #ef4146;}
+.starterBlack .product1 {background: #f1f3f2; color: #4a5666;}
+.starterBlack .product2 {background: #ec8167;}
+.starterBlack .product3 {background: #cc334a;}
+.cr .product1 {background: #cc0028;}
+.cr .product2 {background: #86827f; color: #000;}
+.cr .product3 {background: #fff; color: #000;}
+
 .productWrap .name {
 	position: relative;
 	left: 100px;
@@ -751,7 +870,6 @@
 	transition: all .5s;
 
 	padding: 80px 0 0;
-	color: #fff;
 	font-size: 68px;
 	font-weight: 700;
 	line-height: 1.2;
@@ -788,6 +906,8 @@
 	position: relative;
 	z-index: 2;
 }
+.starterBlack .whySection,
+.cr .whySection {color: #fff;}
 .whySection .contentsWrap {
 	position: relative;
 	height: 972px;
