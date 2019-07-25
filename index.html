@@ -26,62 +26,66 @@
 </head>
 <body>
 
-	<header id="header">
-		<h1 class="logo"><a href="#main"><img src="resource/images/img_logo.png" alt="SPARKS GLENCOE"></a></h1>
-		<nav id="gnb">
-			<ul class="category">
-				<li><a href="#company">Company</a></li>
-				<li><a href="#brands/starter">Brands</a></li>
-				<li><a href="#contact">Contact</a></li>
-			</ul>
-			<div class="util">
-				<div class="lang">
-					<button type="button" onclick="listOpen(this);">ENG</button>
-					<div class="list">
-						<a href="#">KOR</a>
+	<div id="wrap">
+		<header id="header">
+			<h1 class="logo"><a href="#main"><img src="resource/images/img_logo.png" alt="SPARKS GLENCOE"></a></h1>
+			<nav id="gnb">
+				<ul class="category">
+					<li><a href="#brands/starterBlack">Brands</a></li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#contact">Contact</a></li>
+					<li><a href="#eshop">e-shop</a></li>
+				</ul>
+				<div class="util">
+					<div class="lang">
+						<button type="button" onclick="listOpen(this);">ENG</button>
+						<div class="list">
+							<a href="#">KOR</a>
+						</div>
+					</div>
+					<div class="menu">
+						<button type="button" onclick="listOpen(this);"><span>Menu</span></button>
+						<div class="list">
+							<ul>
+								<li><a href="#brands/starterBlack">Brands</a></li>
+								<li><a href="#about">About</a></li>
+								<li><a href="#contact">Contact</a></li>
+								<li><a href="#eshop">e-shop</a></li>
+							</ul>
+						</div>
 					</div>
 				</div>
-				<a href="#sitemap" class="siteMap">Site map</a>
-				<div class="menu">
-					<button type="button" onclick="listOpen(this);"><span>Menu</span></button>
-					<div class="list">
-						<ul>
-							<li><a href="#company">Company</a></li>
-							<li><a href="#brands/starter">Brands</a></li>
-							<li><a href="#contact">Contact</a></li>
-						</ul>
-					</div>
-				</div>
+			</nav>
+			
+			<nav class="brandMenu">
+				<ul class="list">
+					<li data-brand="starterBlack"><a href="#brands/starterBlack">Starter Black Label</a></li>
+					<li data-brand="starter" class="active"><a href="#brands/starter">Starter</a></li>
+					<li data-brand="zooyork"><a href="#brands/zooyork">Zoo York</a></li>
+					<li data-brand="creativeRecreation"><a href="#brands/creativeRecreation">Creative Recreation</a></li>
+				</ul>
+			</nav>
+
+		</header>
+
+		<div id="container">
+
+		</div>
+
+		<footer id="footer">
+			<div class="inner">
+				<span class="link">
+					<a href="#">LEGAL</a>
+					<a href="#">PRIVACY POLICY</a>
+				</span>
+				<span class="contact">INQURIES : <a href="mailto:sgk@sparksglenco.com">sgk@sparksglenco.com</a></span>
+				<p class="copy">
+					930 Ridgebrook Rd, Sparks Glencoe, MD 21152, USA
+					<small>&copy; 2019 ALL RIGHTS RESERVED BY SPARKS GLENCOE</small>
+				</p>
 			</div>
-		</nav>
-		
-		<nav class="brandMenu">
-			<ul class="list">
-				<li data-brand="starter" class="active"><a href="#brands/starter">Starter</a></li>
-				<li data-brand="starterBlack"><a href="#brands/starterBlack">Starter Black Label</a></li>
-				<li data-brand="zooyork"><a href="#brands/zooyork">Zoo York</a></li>
-				<li data-brand="undercon"><a href="#brands/undercon">Undercon</a></li>
-				<li data-brand="creativeRecreation"><a href="#brands/creativeRecreation">Creative Recreation</a></li>
-			</ul>
-		</nav>
-
-	</header>
-
-	<div id="container">
-
+		</footer>
 	</div>
-
-	<footer id="footer">
-		<span class="link">
-			<a href="#">LEGAL</a>
-			<a href="#">PRIVACY POLICY</a>
-		</span>
-		<span class="contact">INQURIES : <a href="mailto:marketing@sparksglenco.com">marketing@sparksglenco.com</a></span>
-		<p class="copy">
-			<small>&copy; 2019 ALL RIGHTS RESERVED BY SPARKS GLENCOE</small>
-		</p>
-	</footer>
-
 	<script type="text/javascript" src="resource/js/jquery-1.12.2.min.js"></script>
 	<!--[if lt IE 9]>
 		<script src="resource/js/html5shiv.min.js"></script>

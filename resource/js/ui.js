@@ -151,10 +151,29 @@ function scrollPos() {
 	var scrollTop = objDefault.doc.scrollTop();
 	var screenEnd = scrollTop + objDefault.win.height();
 	scrollClsObj(screenEnd);
+	
+	// if(nowScroll < scrollTop) {
+	// 	$('html, body').on('scroll', function(){
+	// 		event.preventDefault();
+	// 	});
+	// 	var sum = nowScroll + objDefault.win.height();
+		
+	// 	$('html, body').animate({scrollTop : sum},300, function(){
+	// 		if(sum !=  objDefault.win.height()) {
+	// 			// console.log(scrollTop , objDefault.win.height());
+	// 			// nowScroll = scrollTop;
+	// 		}
+	// 	});
+	// } else {
+	// 	console.log(2);
+	// 	nowScroll = scrollTop;
+	// }
 	objInfoArry.forEach(function(obj){
 		scrollObj(obj, scrollTop, screenEnd);
 	});
 }
+
+var nowScroll = 0;
 objDefault.win.on({
 	'scroll': function() {
 		scrollPos();
