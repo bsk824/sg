@@ -93,17 +93,25 @@
 	<script type="text/javascript" src="resource/js/ui.js"></script>
 	<script>
 		$(window).on({
-			"load" : function() {
-				if (window.location.href.indexOf('#') > -1) {
-					var page = window.location.href.split('#')[1];
-					pageLoad(page);
-				} else {
-					pageLoad('main');
+			// "load" : function() {
+			// 	if (window.location.href.indexOf('#') > -1) {
+			// 		var page = window.location.href.split('#')[1];
+			// 		pageLoad(page);
+			// 	} else {
+			// 		pageLoad('main');
+			// 	}
+			// },
+			// "hashchange" : function() {
+			// 	var page = window.location.href.split('#')[1];
+			// 	pageLoad(page);
+			// },
+			"popstate" : function() {
+				var data = event.originalEvent.state;
+				console.log(data);
+				if (window.location.href.indexOf('sgk/') > -1) {
+					var page = window.location.href.split('sgk/')[1];
+					console.log(page);
 				}
-			},
-			"hashchange" : function() {
-				var page = window.location.href.split('#')[1];
-				pageLoad(page);
 			}
 		});
 	</script>

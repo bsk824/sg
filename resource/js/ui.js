@@ -10,7 +10,6 @@ function pageLoad(page) {
 		dataType: 'html',
 		error: function(r,s,e){
 			if(s == 'error') {
-				console.log(s);
 				return false;
 			}
 		},
