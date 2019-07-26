@@ -15,7 +15,9 @@ function pageLoad(page) {
 			}
 		},
 		success: function(data){
-
+			objDefault.doc.removeClass('ready').animate({scrollTop : 0}, 300, function(){
+				$(this).addClass('ready');
+			});
 			if(page.indexOf('brands/') >= 0) {
 				objDefault.body.addClass('brands');
 				var brandName = page.split('/')[1];

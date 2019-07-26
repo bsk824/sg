@@ -28,7 +28,7 @@
 
 	<div id="wrap">
 		<header id="header">
-			<h1 class="logo"><a href="#main"><img src="resource/images/img_logo.png" alt="SPARKS GLENCOE"></a></h1>
+			<h1 class="logo"><a href="/sgk/"><img src="resource/images/img_logo.png" alt="SPARKS GLENCOE"></a></h1>
 			<nav id="gnb">
 				<ul class="category">
 					<li><a href="#brands/starterBlack">Brands</a></li>
@@ -97,6 +97,8 @@
 				if (window.location.href.indexOf('#') > -1) {
 					var page = window.location.href.split('#')[1];
 					pageLoad(page);
+				} else {
+					pageLoad('main');
 				}
 			},
 			"hashchange" : function() {

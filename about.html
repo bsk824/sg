@@ -1,5 +1,6 @@
 
 	<div id="contents" class="about">
+
 		<section class="aboutTop">
 			<div class="contentsWrap">
 				<h2 class="pageTitle">About</h2>
@@ -12,13 +13,14 @@
 					about our products and to make products and culture that our fans want.
 				</p>
 			</div>
-			<div class="bg">
-				<span class="img"><img src="resource/images/bg_about_top.jpg" alt=""></span>
+			<div class="bg obj1">
+				<span class="img"><img src="resource/images/bg_about_top.jpg" alt="" class="movObj"></span>
 			</div>
 		</section>
+
 		<section class="corpValue">
 			<div class="value">
-				<div class="contentsWrap">
+				<div class="contentsWrap scrollClsObj">
 					<h3 class="tit">Core Value</h3>
 					<p class="txt">
 						Our core value is respect for people.<br>
@@ -27,7 +29,7 @@
 					</p>
 				</div>
 			</div>
-			<div class="contentsWrap">
+			<div class="contentsWrap scrollClsObj">
 				<h3 class="tit">Our Strategy</h3>
 				<p class="txt">
 					Sparks Glencoe aims to mass produce our products at a more reasonable price<br>
@@ -40,13 +42,15 @@
 
 		<section class="cultureWrap">
 			<div class="contentsWrap">
-				<h3 class="tit">Our Culture</h3>
-				<p class="txt">
-					Sparks Glencoe is creating an entirely new organization<br>
-					by bringing together excellent people to work with new values.<br>
-					Sparks Glencoe's employees<br>
-					We are trying to make the world a better place than yesterday.
-				</p>
+				<div class="scrollClsObj">
+					<h3 class="tit">Our Culture</h3>
+					<p class="txt">
+						Sparks Glencoe is creating an entirely new organization<br>
+						by bringing together excellent people to work with new values.<br>
+						Sparks Glencoe's employees<br>
+						We are trying to make the world a better place than yesterday.
+					</p>
+				</div>
 				<ul class="iconList scrollClsObj">
 					<li class="item1"><span class="icon"><img src="resource/images/icon_culture2.png" alt=""></span> Innovation</li>
 					<li class="item2"><span class="icon"><img src="resource/images/icon_culture6.png" alt=""></span> Value</li>
@@ -55,14 +59,14 @@
 					<li class="item5"><span class="icon"><img src="resource/images/icon_culture4.png" alt=""></span> Passion</li>
 				</ul>
 			</div>
-			<div class="bg">
-				<span><img src="resource/images/bg_about_mid.jpg" alt=""></span>
+			<div class="bg obj2">
+				<span><img src="resource/images/bg_about_mid.jpg" alt="" class="movObj"></span>
 			</div>
 		</section>
 
 		<section class="historySection">
 			<div class="head">
-				<div class="contentsWrap">
+				<div class="contentsWrap scrollClsObj">
 					<h3 class="tit">Our History</h3>
 					<p class="txt">
 						Sparks Glencoe is a fashion business company that leads the global fashion trend<br>
@@ -72,7 +76,7 @@
 				</div>
 			</div>
 			<div class="body">
-				<h4 class="year">
+				<h4 class="year scrollClsObj">
 					<span class="num">
 						<img src="resource/images/img_history_2019.png" alt="2019">
 					</span>
@@ -105,6 +109,9 @@
 		</section>
 
 		<script>
-			var objInfoArry = [];
+			var objInfoArry = [
+				{name : 'obj1', y : 300, topStart: true},
+				{name : 'obj2', y : -300},
+			];
 		</script>
 	</div>

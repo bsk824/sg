@@ -51,16 +51,18 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, nav
 
 .btnLink {
 	display: inline-block;
-	padding: 0 50px;
+	padding: 0 35px;
 	border: 1px solid #fff;
 	color: #fff;
-	font-size: 18px;
+	font-size: 17px;
+	font-weight: bold;
 	line-height: 50px;
 	transition: all .3s;
 }
 .btnLink:hover {
 	background: #000;
 	border-color: #000;
+	color: #fff !important;
 }
 
 .colorType1 {color: #a29061;}
