@@ -49,6 +49,18 @@ button::-moz-focus-inner {padding:0;border:0;}
 pre {white-space:pre-wrap;font-family:'Noto Sans KR';}
 article, aside, canvas, details, figcaption, figure, footer, header, hgroup, nav, menu, nav, section {display:block;}
 
+
+.swiper-container-horizontal { 
+	overflow: hidden;
+}
+.swiper-wrapper {
+	position: relative;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+}
+.swiper-wrapper .swiper-slide { flex-shrink: 0; }
+
 .btnLink {
 	display: inline-block;
 	padding: 0 35px;

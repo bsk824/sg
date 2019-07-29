@@ -4,6 +4,8 @@ var objDefault = {
 	'body': $('body'),
 	'cont': $('#container')
 }
+
+/* 페이지 로드 */
 function pageLoad(page) {
 	$.ajax({
 		url: page + '.html',
@@ -32,21 +34,20 @@ function pageLoad(page) {
 		}
 	});
 }
+
+/* 메뉴 오픈 */
 function listOpen(_this) {
 	var $this = $(_this);
 	$this.toggleClass('open').next().slideToggle(300);
 }
-function layerShow(_this) {
-	var $this = $(_this);
-	var img = $this.data('img');
-	var src = 'resource/images/'
+
+/* 레이어 템플릿 함수 */
+function layerOpen(layerCont) {
 	var layerTemplate = '';
 	layerTemplate += '<div class="layerPop">';
 	layerTemplate += '<div class="layerContents">';
-	layerTemplate += '<img src='+src+img+'>';
+	layerTemplate += layerCont;
 	layerTemplate += '</div>';
-	// layerTemplate += '<button type="button" class="prevImg" onclick="prevImg();"><span>prev</span></button>';
-	// layerTemplate += '<button type="button" class="nextImg" onclick="nextImg();"><span>next</span></button>';
 	layerTemplate += '<button type="button" class="layerClose" onclick="layerClose();"><span>close</span></button>';
 	layerTemplate += '</div>';
 	objDefault.body.append(layerTemplate);
@@ -55,8 +56,78 @@ function layerClose() {
 	var layer = $('.layerPop');
 	layer.remove();
 }
+
+/* 이미지 확대보기 함수 */
+function layerShow(_this) {
+	var $this = $(_this);
+	var idx = $this.parent().index();
+	var list = $this.closest('ul').find('button');
+	var img = '';
+	var slideTemplate = '';
+	list.each(function(){
+		var item = $(this);
+		var itemSrc = item.data('img');
+		var itemTxt = item.data('txt');
+		img += '<li class="swiper-slide"><span class="itemWrap"><img src="'+itemSrc+'" alt=""> <strong class="txt">'+itemTxt+'</strong></span></li>';
+	});
+	slideTemplate += '<div class="showSwiper">';
+	slideTemplate += '<ul class="swiper-wrapper">';
+	slideTemplate += img;
+	slideTemplate += '</ul>';
+	slideTemplate += '<div class="control">';
+	slideTemplate += '<button type="button" class="swiperPrev"><svg fill="#E8DFDF" stroke="none" width="15" height="27" viewBox="0 0 15 27"><g fill-rule="evenodd"><path fill-rule="nonzero" d="M.198 25.926l1.06 1.06 13.259-13.258L1.258.47.198 1.53l12.197 12.198z"></path></g></svg></button>';
+	slideTemplate += '<button type="button" class="swiperNext"><svg fill="#E8DFDF" stroke="none" width="15" height="27" viewBox="0 0 15 27"><g fill-rule="evenodd"><path fill-rule="nonzero" d="M14.258 1.53L13.198.47-.061 13.728l13.259 13.258 1.06-1.06L2.061 13.728z"></path></g></svg></button>';
+	slideTemplate += '</div>';
+	slideTemplate += '</div>';
+	layerOpen(slideTemplate);
+	showSwiper(idx);
+}
+
+
+/* 슬라이드 오브젝트 */
+var swiperObj = {};
+
+/* 이미지 확대보기 슬라이드 */
+function showSwiper(idx) {
+	var el = 'showSwiper';
+	var showSwiper = new Swiper('.' + el, {
+		loop: true,
+		initialSlide: idx,
+		navigation: {
+			prevEl: '.' + el +' .swiperPrev',
+			nextEl: '.' + el +' .swiperNext',
+		}
+	});
+	swiperObj[el] = showSwiper;
+}
+
+/* 연혁 슬라이드 */
+function historySwiper() {
+	var el = 'historySection';
+	var historyList = new Swiper('.' + el + ' .historyList', {
+		loop: true,
+		navigation: {
+			prevEl: '.' + el +' .btnPrev',
+			nextEl: '.' + el +' .btnNext',
+		},
+		on: {
+			slideChangeTransitionEnd : function() {
+				var year = $('.swiper-slide-active').data('year')
+				if(year) {
+					$('.' + el).find('.year' + year).addClass('current').siblings().removeClass('current');
+				}
+				
+			}
+		}
+	});
+	swiperObj[el] = historyList;
+}
+
+
+/* 롤링 함수 */
 function roll(obj, dir) {
 	var wrap = $('.'+ obj);
+	var relWrap = wrap.find('.relWrap');
 	var imgWrap = wrap.find('.movWrap');
 	var img = imgWrap.find('img');
 	var resetNum = 0;
@@ -69,7 +140,13 @@ function roll(obj, dir) {
 	img.on('load', function(){
 		clearInterval(timer);
 
-		(dir === 'left' || dir === 'right') ? resetNum = this.width : resetNum = this.height;
+		if(dir === 'left' || dir === 'right') {
+			resetNum = this.width;
+			relWrap.css('margin-left', '-' + resetNum + 'px');
+		} else {
+			resetNum = this.height;
+			relWrap.css('margin-top', '-' + resetNum + 'px');
+		}
 
 		timer = setInterval(function(){
 			pos--;
@@ -86,10 +163,13 @@ function roll(obj, dir) {
 	});
 }
 
+/* 스크롤 대응 오브젝트 */
 var movObj = {};
 var fixedWrap = {};
 var startObjPos = {};
 var endObjPos = {};
+
+/* 스크롤 대응 오브젝트 세팅 */
 function objSet() {
 	objInfoArry.forEach(function(obj){
 		var $this = $('.' + obj.name);
@@ -103,6 +183,8 @@ function objSet() {
 		}
 	});
 }
+
+/* 스크롤 실행 함수  */
 function scrollObj(obj, scrollTop, screenEnd) {
 	var $this = $('.' + obj.name);
 	var style = {};
@@ -148,27 +230,10 @@ function scrollClsObj(screenEnd) {
 		});
 	}
 }
-function scrollPos() {
-	var scrollTop = objDefault.doc.scrollTop();
+function scrollPos(scrollTop) {
 	var screenEnd = scrollTop + objDefault.win.height();
 	scrollClsObj(screenEnd);
 	
-	// if(nowScroll < scrollTop) {
-	// 	$('html, body').on('scroll', function(){
-	// 		event.preventDefault();
-	// 	});
-	// 	var sum = nowScroll + objDefault.win.height();
-		
-	// 	$('html, body').animate({scrollTop : sum},300, function(){
-	// 		if(sum !=  objDefault.win.height()) {
-	// 			// console.log(scrollTop , objDefault.win.height());
-	// 			// nowScroll = scrollTop;
-	// 		}
-	// 	});
-	// } else {
-	// 	console.log(2);
-	// 	nowScroll = scrollTop;
-	// }
 	objInfoArry.forEach(function(obj){
 		scrollObj(obj, scrollTop, screenEnd);
 	});
@@ -177,6 +242,8 @@ function scrollPos() {
 var nowScroll = 0;
 objDefault.win.on({
 	'scroll': function() {
-		scrollPos();
+		var scrollTop = objDefault.doc.scrollTop();
+		(scrollTop > 0) ? objDefault.doc.addClass('scroll') : objDefault.doc.removeClass('scroll');
+		scrollPos(scrollTop);
 	}
 });

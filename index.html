@@ -20,15 +20,15 @@
 	<meta name="msapplication-TileColor" content="#ffffff">
 	<meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">
-	<link rel="stylesheet" type="text/css" href="resource/font/notosans.css">
-	<link rel="stylesheet" type="text/css" href="resource/css/default.css">
-	<link rel="stylesheet" type="text/css" href="resource/css/style.css">
+	<link rel="stylesheet" type="text/css" href="resources/font/notosans.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/default.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/style.css">
 </head>
 <body>
 
 	<div id="wrap">
 		<header id="header">
-			<h1 class="logo"><a href="/sgk/"><img src="resource/images/img_logo.png" alt="SPARKS GLENCOE"></a></h1>
+			<h1 class="logo"><a href="/sgk/"><img src="resources/images/img_logo.png" alt="SPARKS GLENCOE"></a></h1>
 			<nav id="gnb">
 				<ul class="category">
 					<li><a href="#brands/starterBlack">Brands</a></li>
@@ -44,7 +44,7 @@
 						</div>
 					</div>
 					<div class="menu">
-						<button type="button" onclick="listOpen(this);"><span>Menu</span></button>
+						<button type="button" class="btnMenu" onclick="listOpen(this);"><span>Menu</span></button>
 						<div class="list">
 							<ul>
 								<li><a href="#brands/starterBlack">Brands</a></li>
@@ -56,17 +56,17 @@
 					</div>
 				</div>
 			</nav>
-			
-			<nav class="brandMenu">
-				<ul class="list">
-					<li data-brand="starterBlack"><a href="#brands/starterBlack">Starter Black Label</a></li>
-					<li data-brand="starter" class="active"><a href="#brands/starter">Starter</a></li>
-					<li data-brand="zooyork"><a href="#brands/zooyork">Zoo York</a></li>
-					<li data-brand="creativeRecreation"><a href="#brands/creativeRecreation">Creative Recreation</a></li>
-				</ul>
-			</nav>
 
 		</header>
+
+		<nav class="brandMenu">
+			<ul class="list">
+				<li data-brand="starterBlack"><a href="#brands/starterBlack">Starter Black Label</a></li>
+				<li data-brand="starter"><a href="#brands/starter">Starter</a></li>
+				<li data-brand="zooyork"><a href="#brands/zooyork">Zoo York</a></li>
+				<li data-brand="creativeRecreation"><a href="#brands/creativeRecreation">Creative Recreation</a></li>
+			</ul>
+		</nav>
 
 		<div id="container">
 
@@ -86,32 +86,25 @@
 			</div>
 		</footer>
 	</div>
-	<script type="text/javascript" src="resource/js/jquery-1.12.2.min.js"></script>
+	<script type="text/javascript" src="resources/js/jquery-1.12.2.min.js"></script>
+	<script type="text/javascript" src="resources/js/swiper.min.js"></script>
 	<!--[if lt IE 9]>
-		<script src="resource/js/html5shiv.min.js"></script>
+		<script src="resources/js/html5shiv.min.js"></script>
 	<![endif]-->
-	<script type="text/javascript" src="resource/js/ui.js"></script>
+	<script type="text/javascript" src="resources/js/ui.js"></script>
 	<script>
 		$(window).on({
-			// "load" : function() {
-			// 	if (window.location.href.indexOf('#') > -1) {
-			// 		var page = window.location.href.split('#')[1];
-			// 		pageLoad(page);
-			// 	} else {
-			// 		pageLoad('main');
-			// 	}
-			// },
-			// "hashchange" : function() {
-			// 	var page = window.location.href.split('#')[1];
-			// 	pageLoad(page);
-			// },
-			"popstate" : function() {
-				var data = event.originalEvent.state;
-				console.log(data);
-				if (window.location.href.indexOf('sgk/') > -1) {
-					var page = window.location.href.split('sgk/')[1];
-					console.log(page);
+			"load" : function() {
+				if (window.location.href.indexOf('#') > -1) {
+					var page = window.location.href.split('#')[1];
+					pageLoad(page);
+				} else {
+					pageLoad('main');
 				}
+			},
+			"hashchange" : function() {
+				var page = window.location.href.split('#')[1];
+				pageLoad(page);
 			}
 		});
 	</script>
