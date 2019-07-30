@@ -1,3 +1,37 @@
+var agent = navigator.userAgent.toLocaleLowerCase();
+var html = document.getElementsByTagName('html')[0];
+var htmlClass = html.getAttribute('class');
+var device, deviceVer, ver = null;
+if(agent.indexOf('mobile') > -1) {
+	ver = 'mobile';
+	if(agent.indexOf('iphone') > -1 || agent.indexOf('ipad') > -1) {
+		device = agent.substring(agent.indexOf('os') + 3);
+		deviceVer = device.substring(0, device.indexOf('like mac os x'));
+		osVer = 'ios' + deviceVer;
+	}
+	if(agent.indexOf('android') > -1) {
+		device = agent.substring(agent.indexOf('android') + 8);
+		deviceVer = device.substring(0, device.indexOf(';'));
+		andVer = deviceVer.replace(/[.]/gi,'_');
+		osVer = 'android' + andVer;
+
+		if(agent.indexOf('samsung') > -1) osVer += ' samsung'; 
+	}
+} else {
+	ver = 'pc';
+	if(agent.indexOf('msie') > -1) { 
+		device = agent.substring(agent.indexOf('msie') + 4);
+		deviceVer = Math.floor(device.substring(0, device.indexOf(';')));
+		osVer = 'ie' + deviceVer;
+	} else {
+		osVer = '';
+	};
+}
+if(agent.indexOf('naver') > -1) osVer += ' naver';
+if(ver !== null) {
+	(htmlClass !== null) ? html.setAttribute('class', htmlClass + ' ' + ver + ' ' + osVer) : html.setAttribute('class', ver + ' ' + osVer); //html �대옒�� 遺���
+}
+
 var objDefault = {
 	'win': $(window),
 	'doc': $('html'),
@@ -7,6 +41,7 @@ var objDefault = {
 
 /* 페이지 로드 */
 function pageLoad(page) {
+	if(ver == 'mobile') page = page + '_m';
 	$.ajax({
 		url: page + '.html',
 		dataType: 'html',
@@ -35,10 +70,25 @@ function pageLoad(page) {
 	});
 }
 
-/* 메뉴 오픈 */
+/* 메뉴 */
 function listOpen(_this) {
 	var $this = $(_this);
-	$this.toggleClass('open').next().slideToggle(300);
+	var list = $this.next('.list');
+	var link = list.find('a');
+	$this.toggleClass('open');
+	list.stop().slideToggle(300);
+	link.off('click').on('click', function(){
+		$this.removeClass('open');
+		list.slideUp(300);
+	});
+}
+
+/* 비디오 플레이 */
+function videoPlay(_this) {
+	var $this = $(_this);
+	if(!$this.hasClass('play')) {
+		$this.addClass('play').find('video')[0].play();
+	}
 }
 
 /* 레이어 템플릿 함수 */
@@ -83,7 +133,6 @@ function layerShow(_this) {
 	showSwiper(idx);
 }
 
-
 /* 슬라이드 오브젝트 */
 var swiperObj = {};
 
@@ -122,7 +171,6 @@ function historySwiper() {
 	});
 	swiperObj[el] = historyList;
 }
-
 
 /* 롤링 함수 */
 function roll(obj, dir) {
@@ -185,7 +233,7 @@ function objSet() {
 }
 
 /* 스크롤 실행 함수  */
-function scrollObj(obj, scrollTop, screenEnd) {
+function scrollObj(obj, scrollTop, screenEnd, winH) {
 	var $this = $('.' + obj.name);
 	var style = {};
 	if($this.length) {
@@ -197,27 +245,35 @@ function scrollObj(obj, scrollTop, screenEnd) {
 				(startObjPos[obj.name] < scrollTop) ? fixedWrap[obj.name].addClass(obj.startCls) : fixedWrap[obj.name].removeClass(obj.startCls);
 			}
 		} else {
-			if(startObjPos[obj.name] < screenEnd && endObjPos[obj.name] > scrollTop) {
-				if(obj.topStart == true) {
+			if(obj.topStart == true) {
+				if(startObjPos[obj.name] < scrollTop && endObjPos[obj.name] > scrollTop) {
 					var posY = ((scrollTop - startObjPos[obj.name]) / (endObjPos[obj.name] - startObjPos[obj.name]) * obj.y);
 					var posX = ((scrollTop - startObjPos[obj.name]) / (endObjPos[obj.name] - startObjPos[obj.name]) * obj.x);
-				} else {
-					var posY = ((screenEnd - startObjPos[obj.name]) / (endObjPos[obj.name] - startObjPos[obj.name]) * obj.y) / 2;
-					var posX = ((screenEnd - startObjPos[obj.name]) / (endObjPos[obj.name] - startObjPos[obj.name]) * obj.x) / 2;
+					style['top'] = posY + 'px';
+					style['left'] = posX + 'px';
+				} else if(startObjPos[obj.name] >= scrollTop) {
+					style['top'] = 0;
+					style['left'] = 0;
 				}
-				style['top'] = posY + 'px';
-				style['left'] = posX + 'px';
-			} else if(startObjPos[obj.name] >= screenEnd) {
-				style['top'] = 0;
-				style['left'] = 0;
+			} else {
+				if(startObjPos[obj.name] < screenEnd && endObjPos[obj.name] > scrollTop) {
+					var posY = ((screenEnd - startObjPos[obj.name]) / (endObjPos[obj.name] - startObjPos[obj.name] + winH) * obj.y);
+					var posX = ((screenEnd - startObjPos[obj.name]) / (endObjPos[obj.name] - startObjPos[obj.name] + winH) * obj.x);
+					style['top'] = posY + 'px';
+					style['left'] = posX + 'px';
+				} else if(startObjPos[obj.name] >= screenEnd) {
+					style['top'] = 0;
+					style['left'] = 0;
+				}
 			}
 			movObj[obj.name].css(style);
 		}
 	}
 }
+
 function scrollClsObj(screenEnd) {
 	var obj = $('.scrollClsObj');
-	var startPos =  screenEnd - 300;
+	var startPos = screenEnd - 300;
 	if(obj.length) {
 		obj.each(function(){
 			var $this = $(this);
@@ -230,16 +286,17 @@ function scrollClsObj(screenEnd) {
 		});
 	}
 }
+
 function scrollPos(scrollTop) {
-	var screenEnd = scrollTop + objDefault.win.height();
+	var winH = objDefault.win.height();
+	var screenEnd = scrollTop + winH;
 	scrollClsObj(screenEnd);
 	
 	objInfoArry.forEach(function(obj){
-		scrollObj(obj, scrollTop, screenEnd);
+		scrollObj(obj, scrollTop, screenEnd, winH);
 	});
 }
 
-var nowScroll = 0;
 objDefault.win.on({
 	'scroll': function() {
 		var scrollTop = objDefault.doc.scrollTop();

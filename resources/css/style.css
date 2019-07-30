@@ -5,7 +5,7 @@
 	position: fixed;
 	top: 0; right: 0; left: 0;
 	z-index: 100;
-	min-width: 1720px;
+	min-width: 1024px;
 	height: 80px;
 	color: #fff;
 	background: rgba(0,0,0,0);
@@ -66,7 +66,7 @@
 	background: #fff;
 	font-size: 0;
 	opacity: 1;
-	transition: all .3s, transform .3s .3s;
+	transition: all .3s, top .3s .3s;
 }
 #gnb .menu .btnMenu:after {
 	width: 29px;
@@ -84,6 +84,7 @@
 	top: 50%;
 	margin-top: -1px;
 	transform: rotate(45deg);
+	transition: all .3s, transform .3s .3s;
 }
 #gnb .menu .open span {
 	transform: rotate(-45deg);
@@ -91,9 +92,16 @@
 #gnb .menu .open:after {opacity: 0;}
 
 #gnb .menu .list {
-	position: absolute;
 	display: none;
+	width: 100px;
+	padding: 30px 30px 35px;
+	position: absolute;
+	top: 80px; right: 0;
+	background: #fff;
+	color: #000;
+	font-size: 18px;
 }
+#gnb .menu .list li {margin: 0 0 15px;}
 
 #footer {
 	position: relative;
@@ -164,7 +172,23 @@
 	right: 0;
 	opacity: 1;
 	padding: 370px 0;
+	color: #fff;
+	font-size: 25px;
 }
+.mainVod .txtMain .tit {
+	display: block;
+	font-size: 108px;
+}
+.mainVod .txtMain .txt {
+	display: block;
+	font-size: 38px;
+}
+.mainVod .scrollMark {
+	position: absolute;
+	right: 0; bottom: 150px; left: 0;
+	text-align: center;
+}
+.mainVod .scrollMark img {width: 94px;}
 
 .main {background: #fff;}
 .bisSection {position: relative;}
@@ -237,8 +261,8 @@
 
 .mainImgSet {
 	position: relative;
-	margin-top: -200px;
-	height: 3000px;
+	margin-top: -300px;
+	height: 2000px;
 	overflow: hidden;
 }
 .mainImgSet .imgSet {
@@ -250,20 +274,27 @@
 }
 .mainImgSet .fixed {
 	position: fixed;
-	top: 0; right: 0; bottom: 200px; left: 0;
+	top: 0; right: 0; left: 0;
 }
 .mainImgSet .end {
 	position: absolute;
-	top: auto; right: 0; bottom: 200px; left: 0;
+	top: auto; right: 0; bottom: 0; left: 0;
 }
 .mainImgSet .imgSet [class*="imgPos"] {position: absolute;}
-.mainImgSet .imgSet .imgPos1 {top: 0; left: -1000px;}
-.mainImgSet .imgSet .imgPos2 {top: 0; left: 2270px;}
-.mainImgSet .imgSet .imgPos3 {top: 0; left: 1880px;}
+.mainImgSet .imgSet .imgPos1 {top: -100px; left: -500px;}
+.mainImgSet .imgSet .imgPos2 {top: 0; left: 1570px;}
+.mainImgSet .imgSet .imgPos3 {top: -120px; left: 1480px;}
+.mainImgSet:after {
+	content: "";
+	position: absolute;
+	right: 0; bottom: 0; left: 0;
+	height: 100px;
+	background: #000;
+}
 
-.mainBrands {margin-top: -200px;}
+.mainBrands {margin-top: 0;}
 .mainBrands .header {
-	padding: 110px 0 30px;
+	padding: 0 0 40px;
 	background: #000;
 	color: #fff;
 }
@@ -337,6 +368,10 @@
 	letter-spacing: -1px;
 	text-align: center;
 }
+[class*="brandSection"] .more:hover {
+	background: #000;
+	color: #fff;
+}
 [class*="brandSection"] .active .more {opacity: 1;}
 .brandStarter .more {top: 290px; left: 900px;}
 .brandZooyork .more {top: 290px;}
@@ -346,7 +381,7 @@
 	position: absolute;
 	margin-right: -100px;
 	opacity: 0;
-	transition: all .5s;
+	transition: all .3s;
 }
 .brandSection2 .img {margin: 0 0 0 -100px;}
 .brandStarterBlack .img {top: -200px; right: -200px;}
@@ -381,6 +416,9 @@
 	padding-left: 525px;
 }
 .brandSection2 .more {border-color: #fff;}
+.brandSection2 .more:hover {
+	border-color: #000;
+}
 
 .brandZooyork .bg img {opacity: .1;}
 
@@ -968,6 +1006,13 @@
 	bottom: 0; right: -100px;
 	opacity: 0;
 	transition: all .5s;
+	border-color: #000;
+	background: #000;
+}
+.eshopSection .btnLink:hover {
+	background: #fff;
+	border-color: #fff;
+	color: #000 !important;
 }
 .ready .eshopSection .txt {left: 0; opacity: 1;}
 .ready .eshopSection .btnLink {right: 0; opacity: 1;}
