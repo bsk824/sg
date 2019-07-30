@@ -15,7 +15,7 @@
 
 #header .logo {
 	float: left;
-	margin: 15px 0 0 100px;
+	margin: 18px 0 0 100px;
 }
 
 #gnb {
@@ -1099,7 +1099,6 @@
 }
 .starter .brandTop .img {top: 40%;}
 .starterBlack .brandTop .img {top: 40%;}
-.cr .brandTop .img {top: 40%;}
 
 [class*="brandDesc"] .tit {
 	position: relative;

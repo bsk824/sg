@@ -245,26 +245,28 @@ function scrollObj(obj, scrollTop, screenEnd, winH) {
 				(startObjPos[obj.name] < scrollTop) ? fixedWrap[obj.name].addClass(obj.startCls) : fixedWrap[obj.name].removeClass(obj.startCls);
 			}
 		} else {
+			var posY = 0;
+			var posX = 0;
+			var start;
+			var endNum = endObjPos[obj.name] - startObjPos[obj.name];
+
 			if(obj.topStart == true) {
-				if(startObjPos[obj.name] < scrollTop && endObjPos[obj.name] > scrollTop) {
-					var posY = ((scrollTop - startObjPos[obj.name]) / (endObjPos[obj.name] - startObjPos[obj.name]) * obj.y);
-					var posX = ((scrollTop - startObjPos[obj.name]) / (endObjPos[obj.name] - startObjPos[obj.name]) * obj.x);
-					style['top'] = posY + 'px';
-					style['left'] = posX + 'px';
-				} else if(startObjPos[obj.name] >= scrollTop) {
-					style['top'] = 0;
-					style['left'] = 0;
-				}
+				start = scrollTop;
 			} else {
-				if(startObjPos[obj.name] < screenEnd && endObjPos[obj.name] > scrollTop) {
-					var posY = ((screenEnd - startObjPos[obj.name]) / (endObjPos[obj.name] - startObjPos[obj.name] + winH) * obj.y);
-					var posX = ((screenEnd - startObjPos[obj.name]) / (endObjPos[obj.name] - startObjPos[obj.name] + winH) * obj.x);
-					style['top'] = posY + 'px';
-					style['left'] = posX + 'px';
-				} else if(startObjPos[obj.name] >= screenEnd) {
-					style['top'] = 0;
-					style['left'] = 0;
-				}
+				start = screenEnd;
+				endNum = endNum + winH;
+			}
+			var startNum = start - startObjPos[obj.name];
+			var calNum = startNum / endNum;
+			
+			if(startObjPos[obj.name] < start && endObjPos[obj.name] > scrollTop) {
+				posY = calNum * obj.y;
+				posX = calNum * obj.x;
+				style['top'] = posY + 'px';
+				style['left'] = posX + 'px';
+			} else if(startObjPos[obj.name] >= scrollTop) {
+				style['top'] = 0;
+				style['left'] = 0;
 			}
 			movObj[obj.name].css(style);
 		}
