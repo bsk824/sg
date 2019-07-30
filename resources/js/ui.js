@@ -232,7 +232,7 @@ function objSet() {
 	});
 }
 
-/* 스크롤 실행 함수  */
+/* 스크롤 실행 함수 */
 function scrollObj(obj, scrollTop, screenEnd, winH) {
 	var $this = $('.' + obj.name);
 	var style = {};
