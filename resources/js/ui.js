@@ -77,9 +77,22 @@ function listOpen(_this) {
 	var link = list.find('a');
 	$this.toggleClass('open');
 	list.stop().slideToggle(300);
-	link.off('click').on('click', function(){
+	
+	event.stopPropagation();
+	list.on('click', function(){
+		event.stopPropagation();
+	});
+
+	function listClose() {
 		$this.removeClass('open');
 		list.slideUp(300);
+		objDefault.doc.off();
+	}
+	link.off().on('click', function(){
+		listClose();
+	});
+	objDefault.doc.on('click', function(){
+		listClose();
 	});
 }
 
@@ -232,7 +245,7 @@ function objSet() {
 	});
 }
 
-/* 스크롤 실행 함수 */
+/* 스크롤 시 실행 함수 */
 function scrollObj(obj, scrollTop, screenEnd, winH) {
 	var $this = $('.' + obj.name);
 	var style = {};
@@ -280,11 +293,7 @@ function scrollClsObj(screenEnd) {
 		obj.each(function(){
 			var $this = $(this);
 			var thisPos = $this.offset().top;
-			if(startPos > thisPos) {
-				$this.addClass('active');
-			} else {
-				$this.removeClass('active');
-			}
+			(startPos > thisPos) ? $this.addClass('active') : $this.removeClass('active');
 		});
 	}
 }

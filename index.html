@@ -106,8 +106,12 @@
 				}
 			},
 			"hashchange" : function() {
-				var page = window.location.href.split('#')[1];
-				pageLoad(page);
+				if (window.location.href.indexOf('#') > -1) {
+					var page = window.location.href.split('#')[1];
+					pageLoad(page);
+				} else {
+					pageLoad('main');
+				}
 			}
 		});
 	</script>
